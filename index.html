@@ -1,97 +1,576 @@
-<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#090b0a"><meta name="pm-form-version" content="sponsor-url-v1"><title>Vitarights Partner-Onboarding · PromptMarketer</title><style>:root{--bg:#090b0a;--card:#101411;--field:#171c19;--text:#f6f8f7;--muted:#96a199;--line:#29322c;--green:#70eab4;--red:#ff7777}*{box-sizing:border-box}html,body{margin:0;max-width:100%;overflow-x:hidden;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-text-size-adjust:100%}body{background:radial-gradient(850px 420px at 75% -5%,rgba(112,234,180,.1),transparent 60%),var(--bg)}button,input,select{font:inherit;font-size:16px}main{width:min(100%,980px);margin:auto;padding:18px 12px calc(110px + env(safe-area-inset-bottom))}.brand{font-weight:900;letter-spacing:-.04em;margin:6px 4px 34px}.brand span{color:var(--green)}.hero{padding:0 4px}.tag{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:var(--muted);font-size:12px}.hero h1{font-size:clamp(40px,11vw,68px);line-height:.98;letter-spacing:-.055em;margin:15px 0 12px}.hero p,.sub{color:var(--muted);line-height:1.55}.progress{position:sticky;top:0;z-index:10;padding:14px 4px 17px;background:linear-gradient(var(--bg) 72%,transparent)}.steptext{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;margin-bottom:8px}.track{height:6px;border-radius:99px;overflow:hidden;background:var(--line)}.bar{height:100%;background:var(--green);transition:.25s}.panel{display:none;border:1px solid var(--line);background:rgba(16,20,17,.96);border-radius:22px;padding:22px 16px}.panel.active{display:block}.panel h2{font-size:30px;letter-spacing:-.035em;margin:0 0 8px}.grid{display:grid;grid-template-columns:1fr;gap:18px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.field label,.legend{font-size:13px;font-weight:800}.req{color:var(--green)}input,select{width:100%;min-width:0;min-height:54px;border:1px solid var(--line);border-radius:14px;background:var(--field);color:var(--text);padding:13px 14px;outline:none;-webkit-appearance:none;appearance:none}select{appearance:auto}input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(112,234,180,.12)}input[aria-invalid=true],select[aria-invalid=true]{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,119,119,.08)}input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,select:-webkit-autofill{-webkit-text-fill-color:var(--text)!important;caret-color:var(--text)!important;-webkit-box-shadow:0 0 0 1000px var(--field) inset!important;box-shadow:0 0 0 1000px var(--field) inset!important;transition:background-color 9999s ease-out 0s}.hint{font-size:11px;color:#77837b;line-height:1.45}.err{display:none;font-size:12px;color:var(--red)}.field.bad .err{display:block}.choices{display:grid;grid-template-columns:1fr;gap:10px}.choice{display:flex;align-items:center;gap:14px;min-height:68px;border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--field)}.choice.selected{border-color:var(--green);background:rgba(112,234,180,.08)}.choice input[type=radio]{flex:0 0 24px;width:24px;height:24px;min-height:24px;margin:0;padding:0;border-radius:50%;border:2px solid #465149;background:transparent;appearance:none;-webkit-appearance:none}.choice input[type=radio]:checked{border-color:var(--green);background:radial-gradient(circle,var(--green) 0 38%,transparent 42%)}.error-summary{display:none;border:1px solid rgba(255,119,119,.4);background:rgba(255,119,119,.07);border-radius:15px;padding:14px;margin:0 0 20px;color:#ffd1d1;font-size:13px;line-height:1.5}.error-summary.show{display:block}.error-summary strong{display:block;color:#fff}.notice{border:1px solid var(--line);border-radius:15px;padding:14px;color:var(--muted);font-size:12px;line-height:1.5;margin-top:18px}.actions{display:flex;gap:10px;margin-top:28px;padding:24px 16px max(12px,env(safe-area-inset-bottom));border-top:1px solid var(--line);position:sticky;bottom:0;z-index:6;margin-left:-16px;margin-right:-16px;background:linear-gradient(transparent 0,var(--card) 26%)}button{min-height:52px;border:1px solid var(--line);border-radius:14px;background:var(--field);color:var(--text);padding:0 16px;font-weight:800;cursor:pointer}.actions button{flex:1}.primary{background:var(--green);border-color:var(--green);color:#06140d}.contract{max-height:54vh;overflow:auto;border:1px solid var(--line);border-radius:16px;background:#131815;padding:16px}.contract h3{font-size:14px;margin:18px 0 6px}.contract p{font-size:12px;line-height:1.62;color:var(--muted)}.check{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;margin:14px 0}.check input{width:20px;height:20px;min-height:20px;padding:0;appearance:auto;accent-color:var(--green)}.check.bad{padding:10px;border:1px solid rgba(255,119,119,.4);border-radius:12px;background:rgba(255,119,119,.06)}.review{display:grid;gap:12px}.review-card{border:1px solid var(--line);border-radius:17px;background:#131815;padding:15px}.review-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px}.review-head h3{margin:0;font-size:15px}.edit{min-height:38px;padding:0 12px;border-radius:10px;font-size:12px;color:var(--green)}.review-row{display:grid;gap:3px;padding:10px 0;border-top:1px solid rgba(255,255,255,.06)}.review-row:first-child{border-top:0}.review-row span{font-size:10px;color:#718077;text-transform:uppercase;letter-spacing:.06em}.review-row strong{font-size:13px;line-height:1.45;word-break:break-word}.sig{border:1px dashed #3a463f;border-radius:16px;padding:12px;margin-top:18px}.sig canvas{display:block;width:100%;height:170px;background:var(--field);border-radius:11px;touch-action:none}.sigtools{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}.sigtools span{font-size:11px;color:var(--muted)}.toast{position:fixed;left:14px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:30;background:#1a201c;border:1px solid var(--line);border-radius:14px;padding:13px 15px;opacity:0;transform:translateY(12px);pointer-events:none;transition:.2s;font-size:13px}.toast.show{opacity:1;transform:none}#tax[hidden]{display:none!important}.success{text-align:center;padding:34px 10px}.success i{width:68px;height:68px;border-radius:20px;background:rgba(112,234,180,.1);border:1px solid rgba(112,234,180,.25);display:grid;place-items:center;margin:0 auto 16px;color:var(--green);font-size:30px;font-style:normal}@media(min-width:760px){main{padding:28px 22px 100px}.panel{padding:36px}.grid{grid-template-columns:1fr 1fr}.full{grid-column:1/-1}.choices{grid-template-columns:1fr 1fr}.actions{position:static;margin-left:0;margin-right:0;padding:20px 0 0;background:none}.actions button{flex:0 0 auto;min-width:150px}.review-row{grid-template-columns:180px 1fr;gap:18px}}@media(max-width:390px){main{padding-left:8px;padding-right:8px}.panel{padding-left:13px;padding-right:13px}.actions{margin-left:-13px;margin-right:-13px;padding-left:13px;padding-right:13px}.hero h1{font-size:41px}}
-/* Linked sponsor IDs remain readable/copyable and part of FormData. */
+<!doctype html>
+<html lang="de" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0B0714">
+<meta name="referrer" content="no-referrer">
+<meta name="pm-form-version" content="brand-i18n-v2">
+<title>Vitarights Partner-Onboarding · PromptMarketer</title>
+<script>
+// Only an explicitly saved preference overrides the initial dark appearance.
+try{if(localStorage.getItem('pm-form-theme')==='light')document.documentElement.dataset.theme='light';}catch{}
+</script>
+<!-- Same optional web fonts as the reference landing page; no analytics are included. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+/* Brand tokens and logo: getrich.promptmarketer.io landing-page source,
+   StevenRohner/promptmarketer-landingpage @ 00311c121c0cf1c45dccd65584a8e32c576c0dd5.
+   Business fields / sponsorId behaviour retained from form blob 68082ed944e87039b00adc45c6a23432650378bd. */
+:root{--bg:#0B0714;--bg2:#120B20;--card:#171028;--card2:#1D1433;--line:#2B2044;--violet:#7C3AED;--fuchsia:#C026D3;--pink:#E879F9;--text:#F2EFF9;--muted:#9A93AC;--muted2:#6B6480;--grad:linear-gradient(90deg,var(--violet),var(--fuchsia));--header:rgba(11,7,20,.88);--glow:rgba(124,58,237,.14);--focus:rgba(192,38,211,.2);--tint:rgba(192,38,211,.09);--danger:#FDA4AF;--danger-bg:rgba(190,18,60,.12);--header-h:72px;color-scheme:dark}
+html[data-theme="light"]{--bg:#FAF8FE;--bg2:#F1ECFA;--card:#FFFFFF;--card2:#F6F2FC;--line:#E5DEF2;--pink:#A21CAF;--text:#1D1433;--muted:#5D5478;--muted2:#8D86A3;--header:rgba(250,248,254,.92);--glow:rgba(124,58,237,.07);--tint:rgba(162,28,175,.05);--danger:#B42342;--danger-bg:rgba(190,18,60,.04);color-scheme:light}
+*{box-sizing:border-box}
 [hidden]{display:none!important}
-#sponsorId[readonly]{border-color:var(--green);background:#15241d;color:var(--text);opacity:1;cursor:default}
-.sponsor-notice{margin:16px 4px 4px;overflow-wrap:anywhere;scroll-margin-top:85px}
-.sponsor-notice strong{color:var(--text)}
-.sponsor-notice.is-error{border-color:var(--red);background:rgba(255,119,119,.07);color:#ffd1d1}
-.sponsor-notice:focus-visible{outline:2px solid var(--green);outline-offset:3px}
-#sponsorIdHint{color:var(--muted)}
-.actions button:disabled{opacity:.55;cursor:not-allowed}
-</style></head><body><main><div class="brand">PROMPT<span>MARKETER</span></div><section class="hero"><span class="tag">Digitaler Vertriebspartnervertrag DE / AT</span><h1>Vitarights Partner werden.</h1><p>Geführtes Online-Onboarding auf Basis des Vitarights-Vertriebspartnervertrags, Stand 05.03.2026.</p></section><div id="sponsorLinkNotice" class="notice sponsor-notice" role="status" aria-live="polite" tabindex="-1" hidden></div><div class="progress"><div class="steptext"><strong id="stepTitle"></strong><span id="pct"></span></div><div class="track"><div class="bar" id="bar"></div></div></div><form id="form" novalidate><section class="panel active" data-step="0"><h2>Persönliche Angaben</h2><p class="sub">Kontakt- und Adressdaten für den Vertrag.</p><div class="error-summary" role="alert"></div><div class="grid"><div class="field"><label for="firstName">Vorname <span class="req">*</span></label><input id="firstName" name="firstName" autocomplete="given-name" required><span class="err">Bitte Vorname eingeben.</span></div><div class="field"><label for="lastName">Nachname <span class="req">*</span></label><input id="lastName" name="lastName" autocomplete="family-name" required><span class="err">Bitte Nachname eingeben.</span></div><div class="field"><label for="birthDate">Geburtsdatum <span class="req">*</span></label><input id="birthDate" name="birthDate" type="date" autocomplete="bday" required><span class="err">Bitte gültiges Geburtsdatum eingeben.</span></div><div class="field"><label for="email">E-Mail <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" required><span class="err">Bitte gültige E-Mail eingeben.</span></div><div class="field full"><label for="email2">E-Mail bestätigen <span class="req">*</span></label><input id="email2" name="email2" type="email" autocomplete="off" required><span class="err">Die E-Mail-Adressen stimmen nicht überein.</span></div><div class="field"><label for="street">Straße <span class="req">*</span></label><input id="street" name="street" autocomplete="address-line1" required><span class="err">Bitte Straße eingeben.</span></div><div class="field"><label for="houseNo">Hausnummer <span class="req">*</span></label><input id="houseNo" name="houseNo" autocomplete="address-line2" pattern="[0-9]{1,5}[a-zA-Z]?(?:[\-\/][0-9a-zA-Z]{1,5})?" required><span class="err">Bitte gültige Hausnummer eingeben.</span></div><div class="field"><label for="country">Land <span class="req">*</span></label><select id="country" name="country" autocomplete="country" required><option value="">Bitte wählen</option><option value="DE">Deutschland</option><option value="AT">Österreich</option></select><span class="err">Bitte Land auswählen.</span></div><div class="field"><label for="postal">PLZ <span class="req">*</span></label><input id="postal" name="postal" autocomplete="postal-code" inputmode="numeric" required><span class="err">Bitte gültige PLZ eingeben.</span></div><div class="field full"><label for="city">Ort <span class="req">*</span></label><input id="city" name="city" autocomplete="address-level2" required><span class="err">Bitte Ort eingeben.</span></div><div class="field"><label for="phone">Telefon</label><input id="phone" name="phone" type="tel" autocomplete="tel" pattern="^\+?[0-9][0-9 \(\)\/.\-]{5,23}$"><span class="err">Bitte gültige Telefonnummer eingeben.</span></div><div class="field"><label for="mobile">Mobiltelefon <span class="req">*</span></label><input id="mobile" name="mobile" type="tel" autocomplete="tel-national" pattern="^\+?[0-9][0-9 \(\)\/.\-]{5,23}$" required><span class="err">Bitte gültige Mobilnummer eingeben.</span></div></div><div class="actions"><button class="primary next" type="button">Weiter →</button></div></section><section class="panel" data-step="1"><h2>Geschäftliche Angaben</h2><p class="sub">Steuerstatus und gewünschte Startoption.</p><div class="error-summary" role="alert"></div><div class="field"><span class="legend">Mehrwertsteuerpflichtig <span class="req">*</span></span><div class="choices"><label class="choice"><input type="radio" name="vat" value="ja" required><span>Ja</span></label><label class="choice"><input type="radio" name="vat" value="nein" required><span>Nein</span></label></div><span class="err">Bitte auswählen.</span></div><div id="tax" class="grid" hidden style="margin-top:18px"><div class="field"><label for="taxNo">Steuernummer <span class="req">*</span></label><input id="taxNo" name="taxNo"><span class="err">Bitte Steuernummer angeben.</span></div><div class="field"><label for="vatId">USt.-ID <span class="req">*</span></label><input id="vatId" name="vatId" autocapitalize="characters"><span class="err">Bitte gültige USt.-ID angeben.</span></div><div class="field full"><label for="taxOffice">Zuständiges Finanzamt <span class="req">*</span></label><input id="taxOffice" name="taxOffice"><span class="err">Bitte Finanzamt angeben.</span></div></div><h3>Startoption</h3><div class="field"><div class="choices"><label class="choice"><input type="radio" name="startOption" value="Erfolgsstart Business" required><strong>Erfolgsstart Business</strong></label><label class="choice"><input type="radio" name="startOption" value="Erfolgsstart Premium" required><strong>Erfolgsstart Premium</strong></label></div><span class="err">Bitte Startoption wählen.</span></div><div class="notice">Die neue Partner-ID wird von Vitarights vergeben.</div><div class="actions"><button class="back" type="button">← Zurück</button><button class="primary next" type="button">Weiter →</button></div></section><section class="panel" data-step="2"><h2>Auszahlungskonto</h2><p class="sub">Über dieses Girokonto werden Provisionen und Vergütungen abgewickelt.</p><div class="error-summary" role="alert"></div><div class="grid"><div class="field full"><label for="iban">IBAN <span class="req">*</span></label><input id="iban" name="iban" autocapitalize="characters" autocomplete="off" maxlength="34" required><span class="hint">DE oder AT; Leerzeichen werden automatisch formatiert.</span><span class="err">Bitte gültige IBAN für das gewählte Land eingeben.</span></div><div class="field"><label for="bic">BIC <span class="req">*</span></label><input id="bic" name="bic" autocapitalize="characters" autocomplete="off" maxlength="11" pattern="^[A-Za-z]{6}[A-Za-z0-9]{2}([A-Za-z0-9]{3})?$" required><span class="err">BIC muss 8 oder 11 Zeichen haben.</span></div><div class="field"><label for="bank">Kreditinstitut <span class="req">*</span></label><input id="bank" name="bank" required><span class="err">Bitte Kreditinstitut angeben.</span></div><div class="field full"><label for="holder">Kontoinhaber <span class="req">*</span></label><input id="holder" name="holder" required><span class="err">Bitte Kontoinhaber angeben.</span></div></div><div class="actions"><button class="back" type="button">← Zurück</button><button class="primary next" type="button">Weiter →</button></div></section><section class="panel" data-step="3"><h2>Start & Zuordnung</h2><p class="sub">Vertragsbeginn und Zuordnung im Vitarights-Team.</p><div class="error-summary" role="alert"></div><div class="grid"><div class="field"><label for="startDate">Startdatum <span class="req">*</span></label><input id="startDate" name="startDate" type="date" required><span class="err">Bitte Startdatum wählen.</span></div><div class="field"><label for="location">Ort der Unterzeichnung <span class="req">*</span></label><input id="location" name="location" required><span class="err">Bitte Ort angeben.</span></div><div class="field"><label for="sponsor">Name des Förderers <span class="req">*</span></label><input id="sponsor" name="sponsor" required><span class="err">Bitte Förderer angeben.</span></div><div class="field"><label for="sponsorId">VI-Partner-Nr. des Förderers <span class="req">*</span></label><input id="sponsorId" name="sponsorId" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" pattern="[0-9]+" aria-describedby="sponsorIdHint sponsorIdError" required><span class="hint" id="sponsorIdHint">Nur Ziffern. Gemeint ist die Vitarights-ID deines Förderers.</span><span class="err" id="sponsorIdError">Bitte die Vitarights-Partnernummer nur mit Ziffern angeben.</span></div><div class="field full"><label for="leader">Name Vitarights-Führungskraft <span class="req">*</span></label><input id="leader" name="leader" required><span class="err">Bitte Führungskraft angeben.</span></div></div><div class="actions"><button class="back" type="button">← Zurück</button><button class="primary next" type="button">Vertrag prüfen →</button></div></section><section class="panel" data-step="4"><h2>Vertrag prüfen</h2><p class="sub">Bitte lies die Vertragsbestimmungen und bestätige sie.</p><div class="error-summary" role="alert"></div><div class="contract"><h3>§ 1 Vertragsgegenstand</h3><p>Der Partner ist selbstständiger Gewerbetreibender, arbeitet auf eigenes Risiko und Provisionsbasis. Ein Gebiets- oder Kundenschutz wird nicht gewährt.</p><h3>§§ 2–3 Befugnisse und Teamgeschäft</h3><p>Der Partner vermittelt Kaufverträge mit Endkunden, ist nicht zum Inkasso berechtigt und kann neue Partner vorschlagen. Allein die Gewinnung neuer Partner führt zu keinem Einkommen.</p><h3>§ 4 Vertraulichkeit</h3><p>Geschäfts- und Betriebsgeheimnisse sind vertraulich zu behandeln. Für schuldhafte Verstöße ist eine gerichtlich überprüfbare Vertragsstrafe von mindestens 5.100 € vorgesehen.</p><h3>§§ 5–11</h3><p>Regelungen zu Schulungen, Pflichten des Unternehmens, Vertriebsgrundsätzen, Provision, Kosten, Provisionsabrechnung sowie Teamportal und Partnershop.</p><h3>§ 12 Vertragsbeendigung</h3><p>Der Vertrag wird auf unbestimmte Zeit geschlossen. Die ordentliche Kündigungsfrist beträgt einen Monat zum Monatsende.</p><h3>§ 13 Wettbewerb</h3><p>Konkurrenztätigkeiten für Unternehmen mit gleichen Vertragserzeugnissen bzw. Marken sind während des Vertragsverhältnisses untersagt.</p><h3>§§ 14–16 und Datenschutz</h3><p>Regelungen zu Abtretung, Verjährung, Datenschutz, deutschem Recht, Gerichtsstand, Schriftform und sonstigen Bestimmungen. Anlage 1 enthält die Information zum Datenschutz.</p></div><div class="check"><input id="c1" type="checkbox" required><label for="c1">Ich habe den Vertriebspartnervertrag gelesen und akzeptiere die Bestimmungen. <span class="req">*</span></label></div><div class="check"><input id="c2" type="checkbox" required><label for="c2">Ich habe die Information zum Datenschutz zur Kenntnis genommen. <span class="req">*</span></label></div><div class="check"><input id="c3" type="checkbox" required><label for="c3">Ich bestätige den Abschluss als selbstständiger Gewerbetreibender. <span class="req">*</span></label></div><div class="actions"><button class="back" type="button">← Zurück</button><button class="primary next" type="button">Daten prüfen →</button></div></section><section class="panel" data-step="5"><h2>Prüfen & abschließen</h2><p class="sub">Kontrolliere alle Angaben. Über „Bearbeiten“ springst du direkt zum jeweiligen Abschnitt zurück.</p><div class="error-summary" role="alert"></div><div id="review" class="review"></div><div class="sig"><div class="legend">Unterschrift <span class="req">*</span></div><canvas id="sig" width="1000" height="340" aria-label="Unterschriftsfeld"></canvas><div class="sigtools"><span id="sigState">Bitte im Feld unterschreiben.</span><button type="button" id="clear">Löschen</button></div></div><div class="notice">Die Gegenzeichnung durch die Vitarights Innovations GmbH erfolgt separat im internen Freigabeprozess.</div><div class="notice">Testmodus: Die Base44-Anbindung ist noch nicht aktiviert. Es werden keine Antragsdaten übermittelt.</div><div class="actions"><button class="back" type="button">← Zurück</button><button class="primary" type="submit">Lokal prüfen →</button></div></section></form><section id="success" class="panel"><div class="success"><i>✓</i><h2>Lokal geprüft – noch nicht gesendet</h2><p class="sub">Die Eingaben wurden nur in diesem Browser geprüft. Es wurde kein Antrag an Vitarights oder Base44 übermittelt. Die Backend-Anbindung ist noch nicht aktiviert.</p></div></section></main><div class="toast" id="toast" role="status" aria-live="polite"></div><script>(()=>{const f=document.getElementById('form'),p=[...document.querySelectorAll('[data-step]')],titles=['Persönliche Angaben','Geschäftliche Angaben','Auszahlungskonto','Start & Zuordnung','Vertrag prüfen','Prüfen & abschließen'];let step=0,signed=false,returnReview=false;const $=n=>f.elements.namedItem(n);
-const bar=document.getElementById('bar'),pct=document.getElementById('pct'),stepTitle=document.getElementById('stepTitle'),sigState=document.getElementById('sigState'),success=document.getElementById('success');
+html{scroll-behavior:smooth;scroll-padding-top:155px}
+body{margin:0;background:radial-gradient(ellipse at 85% 0,var(--glow),transparent 600px),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+button,input,select{font:inherit;font-size:16px}
+button,a,input,select,summary{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+button:disabled{opacity:.55;cursor:not-allowed}
+a{color:var(--pink)}
+:focus-visible{outline:3px solid var(--pink);outline-offset:4px}
+.skip{position:fixed;left:12px;top:-90px;padding:12px 18px;background:var(--card);border:1px solid var(--pink);border-radius:12px;z-index:100}
+.skip:focus{top:12px}
+.site-header{position:sticky;top:0;z-index:30;background:var(--header);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{width:min(100%,980px);min-height:var(--header-h);margin:auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{display:inline-flex;align-items:center;gap:7px;min-width:0;font-weight:800;font-size:clamp(16px,4.6vw,19px);letter-spacing:-.01em;color:var(--text);text-decoration:none;line-height:1.25}
+.brand svg{display:block;flex:none;width:28px;height:28px;color:#FFFFFF}
+html[data-theme="light"] .brand svg{color:#000000}
+.brand .wm{white-space:nowrap;letter-spacing:-.015em}.brand .io{color:var(--muted2);font-weight:500}.brand em{font-style:normal;color:var(--pink)}
+.nav-actions{display:flex;gap:8px;align-items:center;flex:none}
+.lang-btn,.theme-btn{display:inline-flex;align-items:center;justify-content:center;flex:none;width:44px;height:44px;min-height:44px;padding:0;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--muted);transition:color .15s,border-color .15s}
+.lang-btn{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;font-weight:700;letter-spacing:.05em}
+.lang-btn:hover,.theme-btn:hover{color:var(--text);border-color:var(--muted2)}
+.theme-btn svg{stroke:currentColor;display:block}.theme-btn .sun{display:none}html[data-theme="light"] .theme-btn .moon{display:none}html[data-theme="light"] .theme-btn .sun{display:block}
+main{width:min(100%,980px);min-width:0;margin:auto;padding:24px 12px calc(36px + env(safe-area-inset-bottom))}
+.hero{padding:8px 4px 16px;max-width:760px}.tag{display:inline-block;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--pink);border:1px solid var(--line);padding:6px 10px;border-radius:99px}
+h1{font-size:clamp(34px,8vw,56px);line-height:1.08;letter-spacing:-.035em;font-weight:900;margin:17px 0 14px;overflow-wrap:break-word}
+.hero p{color:var(--muted);margin:0;font-size:16px;max-width:640px}
+.progress{position:sticky;top:var(--header-h);z-index:20;padding:14px 4px 18px;background:linear-gradient(var(--bg) 80%,transparent)}
+.steptext{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin-bottom:9px;line-height:1.45;align-items:center}.steptext strong{font-weight:700;color:var(--text)}.steptext span{color:var(--muted);flex:none}
+.track{height:6px;background:var(--line);border-radius:99px;overflow:hidden}.bar{width:16.667%;height:100%;background:var(--grad);border-radius:99px;transition:width .2s}
+.panel{min-width:0;padding:22px 16px 0;border:1px solid var(--line);border-radius:22px;background:var(--card);box-shadow:0 16px 64px rgba(11,7,20,.07)}
+h2{font-size:clamp(25px,6.6vw,32px);line-height:1.18;letter-spacing:-.025em;margin:0;font-weight:800;overflow-wrap:break-word}
+.sub{color:var(--muted);margin:10px 0 18px;line-height:1.55}.required-note{font-size:12px;color:var(--muted);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}.field{min-width:0;display:flex;flex-direction:column;gap:7px;scroll-margin-top:166px;scroll-margin-bottom:120px}
+.field>label,legend,.sig>label{font-size:14px;font-weight:700;line-height:1.45}.req{color:var(--pink);margin-left:2px}.optional{font-size:12px;font-weight:400;color:var(--muted)}
+input:not([type="radio"]):not([type="checkbox"]),select{display:block;width:100%;max-width:100%;min-width:0;min-height:54px;padding:13px 14px;color:var(--text);background:var(--card2);border:1px solid var(--muted2);border-radius:13px;-webkit-appearance:none;appearance:none;outline:none;line-height:1.5}
+select{appearance:auto}input[type="date"]{min-inline-size:0}input::-webkit-date-and-time-value{text-align:left}input::placeholder{color:var(--muted)}
+input:focus,select:focus{border-color:var(--pink)!important;box-shadow:0 0 0 3px var(--focus)}
+input[readonly]{background:var(--tint)!important;border-color:var(--pink)!important;opacity:1;cursor:default}
+input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,select:-webkit-autofill{-webkit-text-fill-color:var(--text)!important;caret-color:var(--text);-webkit-box-shadow:0 0 0 1000px var(--card2) inset;box-shadow:0 0 0 1000px var(--card2) inset}
+.hint{color:var(--muted);font-size:12px;line-height:1.5}.err{display:block;color:var(--danger);font-size:13px;line-height:1.5;margin:0}
+.field.bad input,.field.bad select,.sig.bad canvas{border-color:var(--danger)!important}.field.bad .choice{border-color:var(--danger)}
+fieldset{border:0;padding:0;margin:0;min-width:0}legend{margin-bottom:10px;padding:0}.radio-field{display:block}.choices{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.choice{display:flex;align-items:center;gap:12px;min-height:64px;padding:14px 16px;background:var(--card2);border:1px solid var(--line);border-radius:14px;font-weight:600;font-size:15px;cursor:pointer;line-height:1.4}
+.choice.selected{border-color:var(--pink);background:var(--tint)}.choice:focus-within{outline:2px solid var(--pink);outline-offset:3px}
+input[type="radio"]{appearance:none;-webkit-appearance:none;width:22px;height:22px;min-height:22px;margin:0;padding:0;flex:0 0 22px;border:2px solid var(--muted2);border-radius:50%;background:var(--card2)}
+input[type="radio"]:checked{border-color:var(--pink);background:radial-gradient(circle,var(--pink) 0 38%,transparent 43%)}
+input[type="checkbox"]{appearance:auto;accent-color:var(--fuchsia);width:22px;height:22px;min-height:22px;margin:1px 0 0;flex:none}
+.section-gap{margin-top:24px}.notice{padding:14px 15px;border:1px solid var(--line);border-radius:14px;background:var(--bg2);color:var(--muted);font-size:13px;line-height:1.6;margin-top:18px;overflow-wrap:anywhere}
+.sponsor-notice{margin:0 4px 12px}.sponsor-notice.is-error,.error-summary{color:var(--danger);border:1px solid var(--danger);background:var(--danger-bg)}
+.error-summary{border-radius:14px;padding:14px 16px;margin-bottom:22px;font-size:13px;scroll-margin-top:160px}.error-summary strong{display:block;font-size:14px}.error-summary p{margin:4px 0 8px}.error-summary ul{margin:0;padding-left:18px}.error-summary a{color:var(--danger);padding:4px 0;display:inline-block;text-decoration:underline;text-underline-offset:3px}
+button{min-height:48px;border:1px solid var(--line);border-radius:12px;background:var(--card2);color:var(--text);padding:11px 16px;font-weight:700;line-height:1.4}
+button.primary{background:var(--grad);color:#FFFFFF;border:0;box-shadow:0 8px 28px rgba(124,58,237,.22)}button.primary:hover{box-shadow:0 10px 32px rgba(192,38,211,.26)}
+.actions{position:sticky;bottom:0;z-index:8;display:flex;justify-content:space-between;gap:10px;margin:26px -16px 0;padding:18px 16px max(16px,env(safe-area-inset-bottom));background:var(--card);border-top:1px solid var(--line);border-radius:0 0 21px 21px}.actions button{flex:1;min-width:0;min-height:52px!important}
+.contract{border:1px solid var(--line);border-radius:14px;background:var(--card2);margin:18px 0 22px;overflow:hidden}.contract summary{cursor:pointer;font-size:14px;font-weight:700;padding:16px;min-height:52px}.contract-body{padding:0 16px 18px}.contract h3{font-size:15px;line-height:1.45;margin:20px 0 7px}.contract h3:first-child{margin-top:0}.contract p{font-size:14px;line-height:1.65;color:var(--muted);margin:0}.contract-note{margin-top:0}
+.check-field{margin:12px 0}.check{display:flex;gap:12px;align-items:flex-start;cursor:pointer;padding:12px 0;min-height:48px}.check>span{font-size:14px;line-height:1.6;font-weight:500}.check-field.bad{border:1px solid var(--danger);padding:0 12px 12px;border-radius:12px}
+.review{display:grid;gap:14px}.review-card{min-width:0;border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--card2)}.review-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px}.review-head h3{font-size:16px;line-height:1.4;margin:0}.review-head button{color:var(--pink);min-height:44px;padding:9px 12px;font-size:13px;background:transparent;flex:none}
+.review-card dl{margin:0}.review-row{padding:10px 0;border-top:1px solid var(--line);display:grid;gap:3px;min-width:0}.review-row dt{color:var(--muted);font-size:12px}.review-row dd{margin:0;color:var(--text);font-size:15px;line-height:1.5;overflow-wrap:anywhere;min-width:0}
+.sig{padding:16px;background:var(--card2);border:1px dashed var(--muted2);border-radius:16px;margin-top:24px;scroll-margin-top:160px}.sig .hint{margin:6px 0 12px}.sig canvas{display:block;width:100%;max-width:100%;height:180px;border:1px solid var(--muted2);border-radius:12px;background:var(--bg2);touch-action:none;cursor:crosshair}.sigtools{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}.sigtools span{font-size:12px;color:var(--muted)}.sigtools button{font-size:13px;flex:none}
+.success{padding:34px 4px;text-align:center}.success i{display:grid;place-items:center;width:64px;height:64px;background:var(--tint);color:var(--pink);border:1px solid var(--pink);border-radius:18px;font-size:28px;font-style:normal;margin:0 auto 20px}.success h2{max-width:640px;margin:auto}.success p{max-width:620px;margin:16px auto 24px;color:var(--muted)}#success{padding:22px 16px}
+.footer{color:var(--muted);font-size:11px;text-align:center;line-height:1.7;padding:22px 4px 0}.toast{position:fixed;left:16px;right:16px;bottom:calc(90px + env(safe-area-inset-bottom));margin:auto;max-width:580px;background:var(--card);border:1px solid var(--pink);color:var(--text);border-radius:14px;padding:14px 16px;z-index:50;font-size:13px;box-shadow:0 12px 40px rgba(0,0,0,.18)}
+@media(max-width:350px){.nav{padding-left:12px;padding-right:12px;gap:6px}.brand{gap:4px;font-size:15px}.brand svg{width:24px;height:24px}.nav-actions{gap:6px}.steptext{font-size:11px}.panel{padding-left:13px;padding-right:13px}.actions{margin-left:-13px;margin-right:-13px;padding-left:13px;padding-right:13px}.actions button{padding-left:8px;padding-right:8px}.review-head{flex-wrap:wrap}}
+@media(min-width:680px){main{padding:32px 24px 48px}.nav{padding-left:24px;padding-right:24px}.brand{gap:11px;font-size:19px}.brand svg{width:30px;height:30px}.hero{padding:14px 0 24px}.panel{padding:32px 28px 0}.grid,.choices{grid-template-columns:repeat(2,minmax(0,1fr))}.full{grid-column:1/-1}.actions{margin-left:-28px;margin-right:-28px;padding-left:28px;padding-right:28px}.actions button{flex:0 1 auto;min-width:160px}.actions button:only-child{margin-left:auto}.review-row{grid-template-columns:180px minmax(0,1fr);gap:20px}.sig canvas{height:200px}}
+@media(orientation:landscape) and (max-height:500px){.progress{position:static}.actions{position:static}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+@media(forced-colors:active){input[type="radio"]{appearance:auto}.primary{border:2px solid ButtonText!important}.bar{background:Highlight}}
+</style></head><body>
+<a class="skip" href="#form" data-i18n="skip">Zum Formular springen</a>
+<header class="site-header"><div class="nav">
+<a class="brand" href="https://getrich.promptmarketer.io/" target="_blank" rel="noopener noreferrer" data-i18n-aria="logoLabel" aria-label="PromptMarketer-Startseite in neuem Tab öffnen"><svg width="30" height="30" viewBox="0 0 256 256" aria-hidden="true"><path d="M 128 25.6 L 47.635 73.992 L 47.635 193.242 L 78.744 212.253 L 79.608 92.138 L 128.864 62.758 L 177.256 93.867 L 177.256 155.22 L 111.581 194.106 L 111.581 230.4 L 208.365 175.959 L 208.365 74.856 Z" fill="currentColor"/><path d="M 128.864 106.829 L 111.581 116.334 L 111.581 155.22 L 144.419 136.209 L 144.419 116.334 Z" fill="currentColor"/></svg><span class="wm">Prompt<em>Marketer</em><span class="io">.io</span></span></a>
+<nav class="nav-actions" data-i18n-aria="preferences" aria-label="Sprache und Darstellung">
+<button class="lang-btn" id="langSwitch" type="button" lang="en" aria-label="Switch to English" title="English">EN</button>
+<button class="theme-btn" id="themeToggle" type="button" aria-label="Zum hellen Modus wechseln" aria-pressed="false">
+<svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+<svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2m-7.07-17.07 1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+</button></nav></div></header>
+<main id="main"><section class="hero"><span class="tag" data-i18n="heroTag">Partner-Onboarding · DE / AT</span><h1 data-i18n="heroTitle">Vitarights Partner werden.</h1><p data-i18n="heroSub">Geführtes Online-Onboarding auf Basis des Vitarights-Vertriebspartnervertrags, Stand 05.03.2026.</p></section>
+<noscript><p class="notice">Bitte aktiviere JavaScript. / Please enable JavaScript.</p></noscript>
+<div id="sponsorLinkNotice" class="notice sponsor-notice" role="status" tabindex="-1" hidden></div>
+<div class="progress" id="progress"><div class="steptext"><strong id="stepTitle">Persönliche Angaben</strong><span id="progressCount">Schritt 1 von 6</span></div><div class="track" id="progressTrack" role="progressbar" aria-label="Formularfortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="17"><div class="bar" id="bar"></div></div></div>
+<form id="form" novalidate autocomplete="on" tabindex="-1">
+<section class="panel" data-step="0" aria-labelledby="heading0">
+<h2 id="heading0" tabindex="-1" data-i18n="s0">Persönliche Angaben</h2><p class="sub" data-i18n="sub0">Kontakt- und Adressdaten für den Vertrag.</p>
+<p class="required-note" data-i18n="requiredNote">Mit * markierte Felder sind Pflichtfelder.</p>
+<p class="notice edit-note" data-i18n="editMode" hidden>Du bearbeitest einen Abschnitt. Danach kehrst du direkt zur Übersicht zurück.</p>
+<div class="error-summary" role="alert" tabindex="-1" hidden></div>
+<div class="grid">
+<div class="field" data-field="firstName"><label for="firstName"><span data-i18n="firstName">Vorname</span> <span class="req" aria-hidden="true">*</span></label><input id="firstName" name="firstName" type="text" autocomplete="given-name" maxlength="100" required aria-describedby="firstNameError"><span class="err" id="firstNameError" hidden></span></div>
+<div class="field" data-field="lastName"><label for="lastName"><span data-i18n="lastName">Nachname</span> <span class="req" aria-hidden="true">*</span></label><input id="lastName" name="lastName" type="text" autocomplete="family-name" maxlength="100" required aria-describedby="lastNameError"><span class="err" id="lastNameError" hidden></span></div>
+<div class="field" data-field="birthDate"><label for="birthDate"><span data-i18n="birthDate">Geburtsdatum</span> <span class="req" aria-hidden="true">*</span></label><input id="birthDate" name="birthDate" type="date" autocomplete="bday" required aria-describedby="birthDateError"><span class="err" id="birthDateError" hidden></span></div>
+<div class="field" data-field="email"><label for="email"><span data-i18n="email">E-Mail</span> <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required aria-describedby="emailError"><span class="err" id="emailError" hidden></span></div>
+<div class="field full" data-field="email2"><label for="email2"><span data-i18n="email2">E-Mail bestätigen</span> <span class="req" aria-hidden="true">*</span></label><input id="email2" name="email2" type="email" autocomplete="off" inputmode="email" autocapitalize="none" spellcheck="false" maxlength="254" required aria-describedby="email2Error"><span class="err" id="email2Error" hidden></span></div>
+<div class="field" data-field="street"><label for="street"><span data-i18n="street">Straße</span> <span class="req" aria-hidden="true">*</span></label><input id="street" name="street" type="text" autocomplete="address-line1" maxlength="150" required aria-describedby="streetError"><span class="err" id="streetError" hidden></span></div>
+<div class="field" data-field="houseNo"><label for="houseNo"><span data-i18n="houseNo">Hausnummer</span> <span class="req" aria-hidden="true">*</span></label><input id="houseNo" name="houseNo" type="text" autocomplete="address-line2" maxlength="30" required aria-describedby="houseNoError"><span class="err" id="houseNoError" hidden></span></div>
+<div class="field" data-field="country"><label for="country"><span data-i18n="country">Land</span> <span class="req" aria-hidden="true">*</span></label><select id="country" name="country" autocomplete="country" required aria-describedby="countryError"><option value="" data-i18n="choose">Bitte wählen</option><option value="DE" data-i18n="countryDE">Deutschland</option><option value="AT" data-i18n="countryAT">Österreich</option></select><span class="err" id="countryError" hidden></span></div>
+<div class="field" data-field="postal"><label for="postal"><span data-i18n="postal">PLZ</span> <span class="req" aria-hidden="true">*</span></label><input id="postal" name="postal" type="text" autocomplete="postal-code" inputmode="numeric" maxlength="5" required aria-describedby="postalError"><span class="err" id="postalError" hidden></span></div>
+<div class="field full" data-field="city"><label for="city"><span data-i18n="city">Ort</span> <span class="req" aria-hidden="true">*</span></label><input id="city" name="city" type="text" autocomplete="address-level2" maxlength="120" required aria-describedby="cityError"><span class="err" id="cityError" hidden></span></div>
+<div class="field" data-field="phone"><label for="phone"><span data-i18n="phone">Telefon</span> <span class="optional">(<span data-i18n="optional">optional</span>)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="40" aria-describedby="phoneError"><span class="err" id="phoneError" hidden></span></div>
+<div class="field" data-field="mobile"><label for="mobile"><span data-i18n="mobile">Mobiltelefon</span> <span class="req" aria-hidden="true">*</span></label><input id="mobile" name="mobile" type="tel" autocomplete="tel-national" inputmode="tel" maxlength="40" required aria-describedby="mobileError"><span class="err" id="mobileError" hidden></span></div>
+</div><div class="actions"><button class="primary next" type="button" data-next-key="next" data-i18n="next">Weiter →</button></div></section>
+<section class="panel" data-step="1" aria-labelledby="heading1" hidden>
+<h2 id="heading1" tabindex="-1" data-i18n="s1">Geschäftliche Angaben</h2><p class="sub" data-i18n="sub1">Steuerstatus und gewünschte Startoption.</p>
+<p class="required-note" data-i18n="requiredNote">Mit * markierte Felder sind Pflichtfelder.</p>
+<p class="notice edit-note" data-i18n="editMode" hidden>Du bearbeitest einen Abschnitt. Danach kehrst du direkt zur Übersicht zurück.</p>
+<div class="error-summary" role="alert" tabindex="-1" hidden></div>
+<fieldset class="field radio-field" data-field="vat"><legend><span data-i18n="vat">Mehrwertsteuerpflichtig</span> <span class="req" aria-hidden="true">*</span></legend><div class="choices"><label class="choice"><input id="vat_0" type="radio" name="vat" value="ja" required aria-describedby="vatError"><span data-i18n="yes">Ja</span></label><label class="choice"><input id="vat_1" type="radio" name="vat" value="nein" required aria-describedby="vatError"><span data-i18n="no">Nein</span></label></div><span class="err" id="vatError" hidden></span></fieldset>
+<div id="tax" class="grid section-gap" hidden>
+<div class="field" data-field="taxNo"><label for="taxNo"><span data-i18n="taxNo">Steuernummer</span> <span class="req" aria-hidden="true">*</span></label><input id="taxNo" name="taxNo" type="text" maxlength="40" disabled aria-describedby="taxNoError"><span class="err" id="taxNoError" hidden></span></div>
+<div class="field" data-field="vatId"><label for="vatId"><span data-i18n="vatId">USt.-ID</span> <span class="req" aria-hidden="true">*</span></label><input id="vatId" name="vatId" type="text" autocapitalize="characters" spellcheck="false" maxlength="20" disabled aria-describedby="vatIdError"><span class="err" id="vatIdError" hidden></span></div>
+<div class="field full" data-field="taxOffice"><label for="taxOffice"><span data-i18n="taxOffice">Zuständiges Finanzamt</span> <span class="req" aria-hidden="true">*</span></label><input id="taxOffice" name="taxOffice" type="text" maxlength="150" disabled aria-describedby="taxOfficeError"><span class="err" id="taxOfficeError" hidden></span></div>
+</div><div class="section-gap"><fieldset class="field radio-field" data-field="startOption"><legend><span data-i18n="startOption">Startoption</span> <span class="req" aria-hidden="true">*</span></legend><div class="choices"><label class="choice"><input id="startOption_0" type="radio" name="startOption" value="Erfolgsstart Business" required aria-describedby="startOptionError"><span data-i18n="business">Erfolgsstart Business</span></label><label class="choice"><input id="startOption_1" type="radio" name="startOption" value="Erfolgsstart Premium" required aria-describedby="startOptionError"><span data-i18n="premium">Erfolgsstart Premium</span></label></div><span class="err" id="startOptionError" hidden></span></fieldset></div>
+<div class="notice"><span data-i18n="newPartner">Die neue Partner-ID wird von Vitarights vergeben.</span></div><div class="actions"><button class="back" type="button" data-i18n="back">← Zurück</button><button class="primary next" type="button" data-next-key="next" data-i18n="next">Weiter →</button></div></section>
+<section class="panel" data-step="2" aria-labelledby="heading2" hidden>
+<h2 id="heading2" tabindex="-1" data-i18n="s2">Auszahlungskonto</h2><p class="sub" data-i18n="sub2">Über dieses Girokonto werden Provisionen und Vergütungen abgewickelt.</p>
+<p class="required-note" data-i18n="requiredNote">Mit * markierte Felder sind Pflichtfelder.</p>
+<p class="notice edit-note" data-i18n="editMode" hidden>Du bearbeitest einen Abschnitt. Danach kehrst du direkt zur Übersicht zurück.</p>
+<div class="error-summary" role="alert" tabindex="-1" hidden></div>
+<div class="grid">
+<div class="field full" data-field="iban"><label for="iban"><span data-i18n="iban">IBAN</span> <span class="req" aria-hidden="true">*</span></label><input id="iban" name="iban" type="text" autocapitalize="characters" spellcheck="false" autocomplete="off" maxlength="42" required aria-describedby="ibanError ibanHint"><span class="hint" id="ibanHint" data-i18n="ibanHint">DE oder AT; Leerzeichen sind erlaubt. Die Prüfung bestätigt nicht die Kontoinhaberschaft.</span><span class="err" id="ibanError" hidden></span></div>
+<div class="field" data-field="bic"><label for="bic"><span data-i18n="bic">BIC</span> <span class="req" aria-hidden="true">*</span></label><input id="bic" name="bic" type="text" autocapitalize="characters" spellcheck="false" autocomplete="off" maxlength="11" required aria-describedby="bicError"><span class="err" id="bicError" hidden></span></div>
+<div class="field" data-field="bank"><label for="bank"><span data-i18n="bank">Kreditinstitut</span> <span class="req" aria-hidden="true">*</span></label><input id="bank" name="bank" type="text" maxlength="150" required aria-describedby="bankError"><span class="err" id="bankError" hidden></span></div>
+<div class="field full" data-field="holder"><label for="holder"><span data-i18n="holder">Kontoinhaber</span> <span class="req" aria-hidden="true">*</span></label><input id="holder" name="holder" type="text" autocomplete="section-bank name" maxlength="200" required aria-describedby="holderError"><span class="err" id="holderError" hidden></span></div>
+</div><div class="actions"><button class="back" type="button" data-i18n="back">← Zurück</button><button class="primary next" type="button" data-next-key="next" data-i18n="next">Weiter →</button></div></section>
+<section class="panel" data-step="3" aria-labelledby="heading3" hidden>
+<h2 id="heading3" tabindex="-1" data-i18n="s3">Start & Zuordnung</h2><p class="sub" data-i18n="sub3">Vertragsbeginn und Zuordnung im Vitarights-Team.</p>
+<p class="required-note" data-i18n="requiredNote">Mit * markierte Felder sind Pflichtfelder.</p>
+<p class="notice edit-note" data-i18n="editMode" hidden>Du bearbeitest einen Abschnitt. Danach kehrst du direkt zur Übersicht zurück.</p>
+<div class="error-summary" role="alert" tabindex="-1" hidden></div>
+<div class="grid">
+<div class="field" data-field="startDate"><label for="startDate"><span data-i18n="startDate">Startdatum</span> <span class="req" aria-hidden="true">*</span></label><input id="startDate" name="startDate" type="date" required aria-describedby="startDateError"><span class="err" id="startDateError" hidden></span></div>
+<div class="field" data-field="location"><label for="location"><span data-i18n="location">Ort der Unterzeichnung</span> <span class="req" aria-hidden="true">*</span></label><input id="location" name="location" type="text" maxlength="120" required aria-describedby="locationError"><span class="err" id="locationError" hidden></span></div>
+<div class="field" data-field="sponsor"><label for="sponsor"><span data-i18n="sponsor">Name des Förderers</span> <span class="req" aria-hidden="true">*</span></label><input id="sponsor" name="sponsor" type="text" autocomplete="off" maxlength="200" required aria-describedby="sponsorError"><span class="err" id="sponsorError" hidden></span></div>
+<div class="field" data-field="sponsorId"><label for="sponsorId"><span data-i18n="sponsorId">VI-Partner-Nr. des Förderers</span> <span class="req" aria-hidden="true">*</span></label><input id="sponsorId" name="sponsorId" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" pattern="[0-9]+" required aria-describedby="sponsorIdError sponsorIdHint"><span class="hint" id="sponsorIdHint" data-i18n="sponsorHint">Nur Ziffern. Gemeint ist die Vitarights-ID deines Förderers.</span><span class="err" id="sponsorIdError" hidden></span></div>
+<div class="field full" data-field="leader"><label for="leader"><span data-i18n="leader">Name Vitarights-Führungskraft</span> <span class="req" aria-hidden="true">*</span></label><input id="leader" name="leader" type="text" autocomplete="off" maxlength="200" required aria-describedby="leaderError"><span class="err" id="leaderError" hidden></span></div>
+</div><div class="actions"><button class="back" type="button" data-i18n="back">← Zurück</button><button class="primary next" type="button" data-next-key="nextContract" data-i18n="nextContract">Vertrag prüfen →</button></div></section>
+<section class="panel" data-step="4" aria-labelledby="heading4" hidden>
+<h2 id="heading4" tabindex="-1" data-i18n="s4">Vertrag prüfen</h2><p class="sub" data-i18n="sub4">Lies die Zusammenfassung und prüfe die Bestätigungen.</p>
+<p class="notice edit-note" data-i18n="editMode" hidden>Du bearbeitest einen Abschnitt. Danach kehrst du direkt zur Übersicht zurück.</p>
+<div class="error-summary" role="alert" tabindex="-1" hidden></div>
+<p class="notice contract-note"><span data-i18n="contractNote">Dies ist eine Zusammenfassung, nicht der vollständige Originalvertrag.</span></p>
+<details class="contract" open><summary><span data-i18n="contractSummary">Vertragszusammenfassung</span></summary><div class="contract-body">
+<h3><span data-i18n="contractH0">§ 1 Vertragsgegenstand</span></h3><p><span data-i18n="contractP0">Der Partner ist selbstständiger Gewerbetreibender, arbeitet auf eigenes Risiko und Provisionsbasis. Ein Gebiets- oder Kundenschutz wird nicht gewährt.</span></p>
+<h3><span data-i18n="contractH1">§§ 2–3 Befugnisse und Teamgeschäft</span></h3><p><span data-i18n="contractP1">Der Partner vermittelt Kaufverträge mit Endkunden, ist nicht zum Inkasso berechtigt und kann neue Partner vorschlagen. Allein die Gewinnung neuer Partner führt zu keinem Einkommen.</span></p>
+<h3><span data-i18n="contractH2">§ 4 Vertraulichkeit</span></h3><p><span data-i18n="contractP2">Geschäfts- und Betriebsgeheimnisse sind vertraulich zu behandeln. Für schuldhafte Verstöße ist eine gerichtlich überprüfbare Vertragsstrafe von mindestens 5.100 € vorgesehen.</span></p>
+<h3><span data-i18n="contractH3">§§ 5–11</span></h3><p><span data-i18n="contractP3">Regelungen zu Schulungen, Pflichten des Unternehmens, Vertriebsgrundsätzen, Provision, Kosten, Provisionsabrechnung sowie Teamportal und Partnershop.</span></p>
+<h3><span data-i18n="contractH4">§ 12 Vertragsbeendigung</span></h3><p><span data-i18n="contractP4">Der Vertrag wird auf unbestimmte Zeit geschlossen. Die ordentliche Kündigungsfrist beträgt einen Monat zum Monatsende.</span></p>
+<h3><span data-i18n="contractH5">§ 13 Wettbewerb</span></h3><p><span data-i18n="contractP5">Konkurrenztätigkeiten für Unternehmen mit gleichen Vertragserzeugnissen bzw. Marken sind während des Vertragsverhältnisses untersagt.</span></p>
+<h3><span data-i18n="contractH6">§§ 14–16 und Datenschutz</span></h3><p><span data-i18n="contractP6">Regelungen zu Abtretung, Verjährung, Datenschutz, deutschem Recht, Gerichtsstand, Schriftform und sonstigen Bestimmungen. Anlage 1 enthält die Information zum Datenschutz.</span></p>
+</div></details>
+<div class="field check-field" data-field="c1"><label class="check" for="c1"><input id="c1" name="c1" type="checkbox" required aria-describedby="c1Error"><span><span data-i18n="consent1">Ich habe den Vertriebspartnervertrag gelesen und akzeptiere die Bestimmungen.</span> <span class="req" aria-hidden="true">*</span></span></label><span id="c1Error" class="err" hidden></span></div>
+<div class="field check-field" data-field="c2"><label class="check" for="c2"><input id="c2" name="c2" type="checkbox" required aria-describedby="c2Error"><span><span data-i18n="consent2">Ich habe die Information zum Datenschutz zur Kenntnis genommen.</span> <span class="req" aria-hidden="true">*</span></span></label><span id="c2Error" class="err" hidden></span></div>
+<div class="field check-field" data-field="c3"><label class="check" for="c3"><input id="c3" name="c3" type="checkbox" required aria-describedby="c3Error"><span><span data-i18n="consent3">Ich bestätige den Abschluss als selbstständiger Gewerbetreibender.</span> <span class="req" aria-hidden="true">*</span></span></label><span id="c3Error" class="err" hidden></span></div>
+<div class="actions"><button class="back" type="button" data-i18n="back">← Zurück</button><button class="primary next" type="button" data-next-key="nextReview" data-i18n="nextReview">Daten prüfen →</button></div></section>
+<section class="panel" data-step="5" aria-labelledby="heading5" hidden>
+<h2 id="heading5" tabindex="-1" data-i18n="s5">Prüfen & abschließen</h2><p class="sub" data-i18n="sub5">Kontrolliere alle Angaben. Über „Bearbeiten“ gelangst du direkt zum jeweiligen Abschnitt zurück.</p>
+<p class="notice edit-note" data-i18n="editMode" hidden>Du bearbeitest einen Abschnitt. Danach kehrst du direkt zur Übersicht zurück.</p>
+<div class="error-summary" role="alert" tabindex="-1" hidden></div>
+<div id="review" class="review"></div>
+<div class="sig" id="signatureSection"><label id="sigLabel" for="sig"><span data-i18n="signature">Unterschrift</span> <span class="req" aria-hidden="true">*</span></label><p class="hint" id="sigHint" data-i18n="sigHint">Mit dem Finger, Stift oder der Maus unterschreiben.</p>
+<canvas id="sig" width="1000" height="340" tabindex="0" aria-labelledby="sigLabel" aria-describedby="sigHint signatureError"></canvas>
+<p id="signatureError" class="err" hidden></p><div class="sigtools"><span id="sigState" role="status">Bitte im Feld unterschreiben.</span><button type="button" id="clear" data-i18n="clear" data-i18n-aria="clearLabel">Löschen</button></div></div>
+<div class="notice"><span data-i18n="counterSign">Die Gegenzeichnung durch die Vitarights Innovations GmbH erfolgt separat im internen Freigabeprozess.</span></div><div class="notice" id="localModeNotice"><span data-i18n="localNote">Testmodus: Die Base44-Anbindung ist noch nicht aktiviert. Es werden keine Antragsdaten übermittelt.</span></div>
+<div class="actions"><button class="back" type="button" data-i18n="back">← Zurück</button><button id="submitButton" class="primary" type="submit" data-i18n="localSubmit">Lokal prüfen →</button></div></section>
+</form><section id="success" class="panel" hidden><div class="success"><i aria-hidden="true">✓</i><h2 id="successTitle" tabindex="-1" data-i18n="successTitle">Lokal geprüft – noch nicht gesendet</h2><p data-i18n="successText">Die Eingaben wurden nur in diesem Browser geprüft. Es wurde kein Antrag an Vitarights oder Base44 übermittelt. Die Backend-Anbindung ist noch nicht aktiviert.</p><button id="backReview" type="button" data-i18n="backReview">Zurück zur Übersicht</button></div></section>
+<footer class="footer"><span data-i18n="storageNote">Eingaben bleiben beim Wechsel von Sprache und Darstellung erhalten.</span><br><span data-i18n="previewFoot">Partnerformular · Version 2.0 · Keine Übermittlung im Testmodus</span></footer></main>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script>
+'use strict';
+(() => {
+const I18N={"de":{"firstName":"Vorname","lastName":"Nachname","birthDate":"Geburtsdatum","email":"E-Mail","email2":"E-Mail bestätigen","street":"Straße","houseNo":"Hausnummer","country":"Land","postal":"PLZ","city":"Ort","phone":"Telefon","mobile":"Mobiltelefon","vat":"Mehrwertsteuerpflichtig","taxNo":"Steuernummer","vatId":"USt.-ID","taxOffice":"Zuständiges Finanzamt","startOption":"Startoption","iban":"IBAN","bic":"BIC","bank":"Kreditinstitut","holder":"Kontoinhaber","startDate":"Startdatum","location":"Ort der Unterzeichnung","sponsor":"Name des Förderers","sponsorId":"VI-Partner-Nr. des Förderers","leader":"Name Vitarights-Führungskraft","c1":"Vertriebspartnervertrag","c2":"Datenschutzinformation","c3":"Selbstständige Tätigkeit","pageTitle":"Vitarights Partner-Onboarding · PromptMarketer","logoLabel":"PromptMarketer-Startseite in neuem Tab öffnen","preferences":"Sprache und Darstellung","lightAction":"Zum hellen Modus wechseln","darkAction":"Zum dunklen Modus wechseln","skip":"Zum Formular springen","heroTag":"Partner-Onboarding · DE / AT","heroTitle":"Vitarights Partner werden.","heroSub":"Geführtes Online-Onboarding auf Basis des Vitarights-Vertriebspartnervertrags, Stand 05.03.2026.","progressLabel":"Formularfortschritt","progressCount":"Schritt {n} von 6","requiredNote":"Mit * markierte Felder sind Pflichtfelder.","s0":"Persönliche Angaben","s1":"Geschäftliche Angaben","s2":"Auszahlungskonto","s3":"Start & Zuordnung","s4":"Vertrag prüfen","s5":"Prüfen & abschließen","sub0":"Kontakt- und Adressdaten für den Vertrag.","sub1":"Steuerstatus und gewünschte Startoption.","sub2":"Über dieses Girokonto werden Provisionen und Vergütungen abgewickelt.","sub3":"Vertragsbeginn und Zuordnung im Vitarights-Team.","sub4":"Lies die Zusammenfassung und prüfe die Bestätigungen.","sub5":"Kontrolliere alle Angaben. Über „Bearbeiten“ gelangst du direkt zum jeweiligen Abschnitt zurück.","choose":"Bitte wählen","countryDE":"Deutschland","countryAT":"Österreich","optional":"optional","yes":"Ja","no":"Nein","business":"Erfolgsstart Business","premium":"Erfolgsstart Premium","newPartner":"Die neue Partner-ID wird von Vitarights vergeben.","ibanHint":"DE oder AT; Leerzeichen sind erlaubt. Die Prüfung bestätigt nicht die Kontoinhaberschaft.","sponsorHint":"Nur Ziffern. Gemeint ist die Vitarights-ID deines Förderers.","linkedHint":"Aus deinem Einladungslink übernommen. Diese Nummer kann hier nicht geändert werden.","linkedNotice":"Förderer-ID aus dem Einladungslink: {id}. Die Nummer wird im Formular automatisch übernommen.","invalidLink":"Ungültiger Einladungslink: sponsorId muss genau einmal vorkommen und ausschließlich Ziffern enthalten. Bitte öffne einen korrigierten Link deines Förderers.","invalidLinkHint":"Bitte fordere einen korrigierten Einladungslink an.","back":"← Zurück","next":"Weiter →","nextContract":"Vertrag prüfen →","nextReview":"Daten prüfen →","returnReview":"Zur Übersicht →","edit":"Bearbeiten","editLabel":"{section} bearbeiten","editMode":"Du bearbeitest einen Abschnitt. Danach kehrst du direkt zur Übersicht zurück.","reviewName":"Name","reviewAddress":"Adresse","notProvided":"Nicht angegeben","confirmed":"Bestätigt","notConfirmed":"Noch nicht bestätigt","contractSummary":"Vertragszusammenfassung","contractNote":"Dies ist eine Zusammenfassung, nicht der vollständige Originalvertrag.","consent1":"Ich habe den Vertriebspartnervertrag gelesen und akzeptiere die Bestimmungen.","consent2":"Ich habe die Information zum Datenschutz zur Kenntnis genommen.","consent3":"Ich bestätige den Abschluss als selbstständiger Gewerbetreibender.","signature":"Unterschrift","sigHint":"Mit dem Finger, Stift oder der Maus unterschreiben.","sigEmpty":"Bitte im Feld unterschreiben.","sigDone":"Unterschrift erfasst.","clear":"Löschen","clearLabel":"Unterschrift löschen","sigMissing":"Bitte unterschreibe unterhalb der Zusammenfassung.","sigChanged":"Angaben geändert. Bitte unterschreibe erneut.","counterSign":"Die Gegenzeichnung durch die Vitarights Innovations GmbH erfolgt separat im internen Freigabeprozess.","localNote":"Testmodus: Die Base44-Anbindung ist noch nicht aktiviert. Es werden keine Antragsdaten übermittelt.","localSubmit":"Lokal prüfen →","successTitle":"Lokal geprüft – noch nicht gesendet","successText":"Die Eingaben wurden nur in diesem Browser geprüft. Es wurde kein Antrag an Vitarights oder Base44 übermittelt. Die Backend-Anbindung ist noch nicht aktiviert.","backReview":"Zurück zur Übersicht","errorTitle":"Bitte prüfe deine Angaben.","errorCount":"{n} Angaben sind noch unvollständig oder ungültig.","errorOne":"Eine Angabe ist noch unvollständig oder ungültig.","required":"Bitte fülle „{field}“ aus.","radioRequired":"Bitte wähle eine Option für „{field}“.","consentRequired":"Bitte bestätige „{field}“.","badEmail":"Bitte gib eine gültige E-Mail-Adresse ein.","emailMismatch":"Die E-Mail-Adressen stimmen nicht überein.","badBirth":"Bitte gib ein gültiges Geburtsdatum ein.","underAge":"Für dieses Formular musst du mindestens 18 Jahre alt sein.","badDate":"Bitte gib ein gültiges Datum ein.","pastStart":"Das Startdatum darf nicht in der Vergangenheit liegen.","badHouse":"Bitte gib eine Hausnummer ein, z. B. 12a oder 12/3.","badPostalDE":"Eine deutsche PLZ besteht aus genau 5 Ziffern.","badPostalAT":"Eine österreichische PLZ besteht aus genau 4 Ziffern.","badPhone":"Bitte gib eine gültige Telefonnummer mit Vorwahl ein.","badVatDE":"Eine deutsche USt.-ID besteht aus DE und 9 Ziffern.","badVatAT":"Eine österreichische USt.-ID besteht aus ATU und 8 Ziffern.","badIban":"Bitte prüfe Länge, Ländercode und Prüfziffern deiner IBAN.","badBic":"Die BIC muss aus 8 oder 11 gültigen Zeichen bestehen.","badSponsor":"Bitte gib die Vitarights-Partnernummer ausschließlich mit Ziffern an.","badValue":"Bitte prüfe den Wert für „{field}“.","longValue":"Die Angabe ist zu lang (maximal {n} Zeichen).","previewFoot":"Partnerformular · Version 2.0 · Keine Übermittlung im Testmodus","storageNote":"Eingaben bleiben beim Wechsel von Sprache und Darstellung erhalten.","jsNeeded":"Bitte aktiviere JavaScript, um das Formular zu verwenden.","contractH0":"§ 1 Vertragsgegenstand","contractP0":"Der Partner ist selbstständiger Gewerbetreibender, arbeitet auf eigenes Risiko und Provisionsbasis. Ein Gebiets- oder Kundenschutz wird nicht gewährt.","contractH1":"§§ 2–3 Befugnisse und Teamgeschäft","contractP1":"Der Partner vermittelt Kaufverträge mit Endkunden, ist nicht zum Inkasso berechtigt und kann neue Partner vorschlagen. Allein die Gewinnung neuer Partner führt zu keinem Einkommen.","contractH2":"§ 4 Vertraulichkeit","contractP2":"Geschäfts- und Betriebsgeheimnisse sind vertraulich zu behandeln. Für schuldhafte Verstöße ist eine gerichtlich überprüfbare Vertragsstrafe von mindestens 5.100 € vorgesehen.","contractH3":"§§ 5–11","contractP3":"Regelungen zu Schulungen, Pflichten des Unternehmens, Vertriebsgrundsätzen, Provision, Kosten, Provisionsabrechnung sowie Teamportal und Partnershop.","contractH4":"§ 12 Vertragsbeendigung","contractP4":"Der Vertrag wird auf unbestimmte Zeit geschlossen. Die ordentliche Kündigungsfrist beträgt einen Monat zum Monatsende.","contractH5":"§ 13 Wettbewerb","contractP5":"Konkurrenztätigkeiten für Unternehmen mit gleichen Vertragserzeugnissen bzw. Marken sind während des Vertragsverhältnisses untersagt.","contractH6":"§§ 14–16 und Datenschutz","contractP6":"Regelungen zu Abtretung, Verjährung, Datenschutz, deutschem Recht, Gerichtsstand, Schriftform und sonstigen Bestimmungen. Anlage 1 enthält die Information zum Datenschutz."},"en":{"firstName":"First name","lastName":"Last name","birthDate":"Date of birth","email":"Email","email2":"Confirm email","street":"Street","houseNo":"House number","country":"Country","postal":"Postal code","city":"City","phone":"Phone","mobile":"Mobile phone","vat":"Subject to VAT","taxNo":"Tax number","vatId":"VAT identification number","taxOffice":"Responsible tax office","startOption":"Starting option","iban":"IBAN","bic":"BIC","bank":"Bank","holder":"Account holder","startDate":"Start date","location":"Place of signing","sponsor":"Sponsor’s name","sponsorId":"Sponsor’s VI partner number","leader":"Vitarights leader’s name","c1":"Distribution partner agreement","c2":"Privacy information","c3":"Self-employed status","pageTitle":"Vitarights Partner Onboarding · PromptMarketer","logoLabel":"Open the PromptMarketer home page in a new tab","preferences":"Language and appearance","lightAction":"Switch to light mode","darkAction":"Switch to dark mode","skip":"Skip to the form","heroTag":"Partner onboarding · DE / AT","heroTitle":"Become a Vitarights partner.","heroSub":"Guided online onboarding based on the Vitarights distribution partner agreement dated 5 March 2026.","progressLabel":"Form progress","progressCount":"Step {n} of 6","requiredNote":"Fields marked * are required.","s0":"Personal details","s1":"Business details","s2":"Payout account","s3":"Start & sponsorship","s4":"Review the agreement","s5":"Review & finish","sub0":"Contact and address details for the agreement.","sub1":"Your VAT status and preferred starting option.","sub2":"Commissions and remuneration will be paid to this bank account.","sub3":"Your start date and sponsorship within the Vitarights team.","sub4":"Read the summary and review the confirmations.","sub5":"Check all your details. Select “Edit” to return directly to the relevant section.","choose":"Please select","countryDE":"Germany","countryAT":"Austria","optional":"optional","yes":"Yes","no":"No","business":"Erfolgsstart Business","premium":"Erfolgsstart Premium","newPartner":"Your new partner ID will be assigned by Vitarights.","ibanHint":"DE or AT; spaces are allowed. Validation does not verify ownership of the account.","sponsorHint":"Digits only. Enter your sponsor’s Vitarights ID.","linkedHint":"Taken from your invitation link. This number cannot be changed here.","linkedNotice":"Sponsor ID from your invitation link: {id}. The number is filled in automatically.","invalidLink":"Invalid invitation link: sponsorId must appear exactly once and contain digits only. Please ask your sponsor for a corrected link.","invalidLinkHint":"Please request a corrected invitation link.","back":"← Back","next":"Continue →","nextContract":"Review agreement →","nextReview":"Review details →","returnReview":"Back to review →","edit":"Edit","editLabel":"Edit {section}","editMode":"You are editing a section. When finished, you will return directly to the review.","reviewName":"Name","reviewAddress":"Address","notProvided":"Not provided","confirmed":"Confirmed","notConfirmed":"Not yet confirmed","contractSummary":"Agreement summary","contractNote":"This is an English translation of the summary, not the full original agreement. The original agreement is in German.","consent1":"I have read the distribution partner agreement and accept its terms.","consent2":"I acknowledge that I have read the privacy information.","consent3":"I confirm that I am entering into the agreement as a self-employed business operator.","signature":"Signature","sigHint":"Sign using your finger, a stylus or your mouse.","sigEmpty":"Please sign in the box.","sigDone":"Signature captured.","clear":"Clear","clearLabel":"Clear signature","sigMissing":"Please sign below the review.","sigChanged":"Details changed. Please sign again.","counterSign":"Countersigning by Vitarights Innovations GmbH takes place separately as part of the internal approval process.","localNote":"Test mode: the Base44 connection is not active yet. No application data will be submitted.","localSubmit":"Validate locally →","successTitle":"Validated locally — not submitted","successText":"Your entries were checked only in this browser. No application was sent to Vitarights or Base44. The backend connection is not active yet.","backReview":"Return to review","errorTitle":"Please check your details.","errorCount":"{n} entries are incomplete or invalid.","errorOne":"One entry is incomplete or invalid.","required":"Please complete “{field}”.","radioRequired":"Please select an option for “{field}”.","consentRequired":"Please confirm “{field}”.","badEmail":"Please enter a valid email address.","emailMismatch":"The email addresses do not match.","badBirth":"Please enter a valid date of birth.","underAge":"You must be at least 18 years old to complete this form.","badDate":"Please enter a valid date.","pastStart":"The start date cannot be in the past.","badHouse":"Please enter a house number, e.g. 12a or 12/3.","badPostalDE":"A German postal code must contain exactly 5 digits.","badPostalAT":"An Austrian postal code must contain exactly 4 digits.","badPhone":"Please enter a valid phone number including the area or country code.","badVatDE":"A German VAT ID consists of DE followed by 9 digits.","badVatAT":"An Austrian VAT ID consists of ATU followed by 8 digits.","badIban":"Please check the length, country code and checksum of your IBAN.","badBic":"The BIC must contain 8 or 11 valid characters.","badSponsor":"Please enter the Vitarights partner number using digits only.","badValue":"Please check the value for “{field}”.","longValue":"This entry is too long (maximum {n} characters).","previewFoot":"Partner application · Version 2.0 · No submission in test mode","storageNote":"Your entries are kept when you change language or appearance.","jsNeeded":"Please enable JavaScript to use this form.","contractH0":"§ 1 Subject of the agreement","contractP0":"The partner is a self-employed business operator, working at their own risk and on a commission basis. No territorial or customer exclusivity is granted.","contractH1":"§§ 2–3 Authority and team business","contractP1":"The partner arranges sales agreements with end customers, is not authorised to collect payments and may propose new partners. Recruiting new partners alone does not generate income.","contractH2":"§ 4 Confidentiality","contractP2":"Business and trade secrets must be kept confidential. Culpable breaches are subject to a contractual penalty of at least €5,100, which is subject to judicial review.","contractH3":"§§ 5–11","contractP3":"Provisions on training, company obligations, sales principles, commissions, costs, commission statements, the team portal and partner shop.","contractH4":"§ 12 Termination","contractP4":"The agreement is entered into for an indefinite period. Ordinary termination requires one month’s notice to the end of a calendar month.","contractH5":"§ 13 Competition","contractP5":"Competing activities for companies with the same contractual products or brands are prohibited during the term of the agreement.","contractH6":"§§ 14–16 and data protection","contractP6":"Provisions on assignment, limitation periods, data protection, German law, jurisdiction, written form and other terms. Annex 1 contains the privacy information."}};
+const root=document.documentElement;
+const byId=id=>document.getElementById(id);
+const form=byId('form');
+const panels=Array.from(form.querySelectorAll('[data-step]'));
+const control=name=>form.elements.namedItem(name);
+const value=name=>String(control(name)?.value??'').trim();
+const readPreference=(name,fallback)=>{try{return localStorage.getItem(name)||fallback;}catch{return fallback;}};
+const writePreference=(name,value)=>{try{localStorage.setItem(name,value);}catch{/* Preferences are optional. */}};
+let lang=readPreference('pm-form-lang','de')==='en'?'en':'de';
+let step=0,returnReview=false,finished=false;
+const attempted=new Set();
+const stepErrors=new Map();
+let toastKey='',toastParams={},toastTimer;
+const t=(key,params={})=>(I18N[lang][key]??I18N.de[key]??key).replace(/\{(\w+)\}/g,(_,name)=>String(params[name]??''));
+const reducedMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const scrollBehavior=()=>reducedMotion()?'auto':'smooth';
+function announce(key,params={}){
+  toastKey=key;toastParams=params;
+  byId('toast').textContent=t(key,params);byId('toast').hidden=false;
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>{byId('toast').hidden=true;toastKey='';},4200);
+}
 
-// Public attribution only; NEVER use this URL parameter as authentication.
-// The future Base44 function must match CompanyConfiguration.username_or_id
-// AND its server-configured VITARIGHTS_COMPANY_ID, then resolve the owner.
+// URL attribution is not authentication. A future server MUST resolve the owner
+// using CompanyConfiguration.username_or_id AND its fixed Vitarights company_id.
 function readSponsorLink(search){
   const values=new URLSearchParams(search).getAll('sponsorId');
-  if(values.length===0)return Object.freeze({mode:'manual',value:''});
+  if(!values.length)return Object.freeze({mode:'manual',value:''});
   if(values.length!==1||!(/^[0-9]+$/.test(values[0])))return Object.freeze({mode:'invalid',value:''});
   return Object.freeze({mode:'linked',value:values[0]});
 }
-const sponsorLink=readSponsorLink(window.location.search);
+const sponsorLink=readSponsorLink(location.search);
 const draftKey='vrDraft:v2:'+(sponsorLink.mode==='linked'?'sponsor:'+sponsorLink.value:sponsorLink.mode);
-const sponsorNotice=document.getElementById('sponsorLinkNotice');
 function applySponsorLink(){
-  const field=$('sponsorId'),hint=document.getElementById('sponsorIdHint');
-  if(sponsorLink.mode==='manual')return;
-  field.readOnly=true;
-  field.disabled=false;
-  field.setAttribute('aria-readonly','true');
-  field.value=sponsorLink.value;
-  field.defaultValue=sponsorLink.value;
-  sponsorNotice.hidden=false;
+  const field=control('sponsorId'),notice=byId('sponsorLinkNotice');
+  field.readOnly=sponsorLink.mode!=='manual';field.disabled=false;
+  field.setAttribute('aria-readonly',String(field.readOnly));
   if(sponsorLink.mode==='linked'){
-    hint.textContent='Aus deinem Einladungslink übernommen. Diese Nummer kann hier nicht geändert werden.';
-    sponsorNotice.textContent='Förderer-ID aus dem Einladungslink: '+sponsorLink.value+'. Die Nummer wird im Formular automatisch übernommen.';
-    field.setCustomValidity('');
-  }else{
-    hint.textContent='Der Einladungslink enthält keine eindeutige, gültige Förderer-ID. Bitte fordere einen korrigierten Link an.';
-    sponsorNotice.classList.add('is-error');
-    sponsorNotice.setAttribute('role','alert');
-    sponsorNotice.textContent='Ungültiger Einladungslink: sponsorId muss genau einmal vorkommen und ausschließlich Ziffern enthalten. Bitte öffne einen korrigierten Link deines Förderers.';
-    f.querySelectorAll('.next,button[type="submit"]').forEach(button=>button.disabled=true);
-  }
+    field.value=sponsorLink.value;field.defaultValue=sponsorLink.value;
+    byId('sponsorIdHint').textContent=t('linkedHint');
+    notice.hidden=false;notice.classList.remove('is-error');notice.setAttribute('role','status');
+    notice.textContent=t('linkedNotice',{id:sponsorLink.value});
+  }else if(sponsorLink.mode==='invalid'){
+    field.value='';notice.hidden=false;notice.classList.add('is-error');notice.setAttribute('role','alert');
+    notice.textContent=t('invalidLink');byId('sponsorIdHint').textContent=t('invalidLinkHint');
+  }else{notice.hidden=true;byId('sponsorIdHint').textContent=t('sponsorHint');}
+  form.querySelectorAll('.next,button[type="submit"]').forEach(button=>{button.disabled=sponsorLink.mode==='invalid';});
 }
-function checkSponsorLink(){
+function linkOK(){
   applySponsorLink();
   if(sponsorLink.mode!=='invalid')return true;
-  sponsorNotice.focus();
-  sponsorNotice.scrollIntoView({block:'center',behavior:'smooth'});
+  byId('sponsorLinkNotice').focus({preventScroll:true});
+  byId('sponsorLinkNotice').scrollIntoView({block:'center',behavior:scrollBehavior()});
   return false;
 }
-f.addEventListener('input',event=>{if(event.target.name==='sponsorId')applySponsorLink();},true);
-f.addEventListener('change',event=>{if(event.target.name==='sponsorId')applySponsorLink();},true);
-f.addEventListener('formdata',event=>{
+form.addEventListener('formdata',event=>{
   if(sponsorLink.mode==='linked')event.formData.set('sponsorId',sponsorLink.value);
   if(sponsorLink.mode==='invalid')event.formData.delete('sponsorId');
 });
-f.addEventListener('reset',()=>queueMicrotask(()=>{applySponsorLink();tax();choices();}));
-window.addEventListener('pageshow',applySponsorLink);
-const toast=m=>{const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(t.x);t.x=setTimeout(()=>t.classList.remove('show'),2600)};function show(n){applySponsorLink();step=Math.max(0,Math.min(5,n));p.forEach((x,i)=>x.classList.toggle('active',i===step));const v=Math.round((step+1)/6*100);bar.style.width=v+'%';pct.textContent=v+' %';stepTitle.textContent=(step+1)+' · '+titles[step];if(step===5)review();scrollTo({top:0,behavior:'smooth'})}function choices(){document.querySelectorAll('.choice').forEach(x=>x.classList.toggle('selected',!!x.querySelector('input:checked')))}function country(){const c=$('country').value;$('postal').pattern=c==='DE'?'^[0-9]{5}$':c==='AT'?'^[0-9]{4}$':'';$('vatId').pattern=c==='DE'?'^DE[0-9]{9}$':c==='AT'?'^ATU[0-9]{8}$':''}function tax(){const yes=$('vat').value==='ja';document.getElementById('tax').hidden=!yes;['taxNo','vatId','taxOffice'].forEach(n=>{const e=$(n);e.required=yes;e.disabled=!yes;if(!yes){e.setCustomValidity('');e.removeAttribute('aria-invalid');e.closest('.field').classList.remove('bad')}});choices()}function ibanOK(v,c){const x=v.replace(/\s/g,'').toUpperCase();if(c==='DE'&&!/^DE\d{20}$/.test(x))return false;if(c==='AT'&&!/^AT\d{18}$/.test(x))return false;if(!/^[A-Z]{2}\d{2}[A-Z0-9]+$/.test(x))return false;let s=x.slice(4)+x.slice(0,4),n='',r=0;for(const ch of s)n+=/[A-Z]/.test(ch)?ch.charCodeAt(0)-55:ch;for(const d of n)r=(r*10+Number(d))%97;return r===1}function rules(){applySponsorLink();country();tax();$('email2').setCustomValidity($('email').value&&$('email2').value&&$('email').value!==$('email2').value?'E-Mail stimmt nicht überein.':'');if($('birthDate').value){const d=new Date($('birthDate').value+'T00:00:00'),m=new Date();m.setFullYear(m.getFullYear()-18);$('birthDate').setCustomValidity(d>m?'Mindestalter 18 Jahre.':'')}const i=$('iban').value;$('iban').setCustomValidity(i&&!ibanOK(i,$('country').value)?'Ungültige IBAN.':'')}function validate(){if(!checkSponsorLink())return false;rules();const panel=p[step],bad=[];panel.querySelectorAll('input,select').forEach(e=>{if(e.disabled)return;if(e.type==='radio'){const g=[...panel.querySelectorAll(`input[name="${e.name}"]`)];if(e.required&&!g.some(x=>x.checked)&&!bad.includes(g[0]))bad.push(g[0])}else if(!e.checkValidity())bad.push(e)});panel.querySelectorAll('.field').forEach(x=>x.classList.remove('bad'));panel.querySelectorAll('.check').forEach(x=>x.classList.remove('bad'));panel.querySelectorAll('[aria-invalid=true]').forEach(x=>x.removeAttribute('aria-invalid'));bad.forEach(e=>{e.setAttribute('aria-invalid','true');e.closest('.field')?.classList.add('bad');e.closest('.check')?.classList.add('bad')});const s=panel.querySelector('.error-summary');if(bad.length){s.innerHTML='<strong>Bitte prüfe deine Angaben.</strong>'+bad.length+' Feld'+(bad.length>1?'er sind':' ist')+' noch unvollständig oder ungültig.';s.classList.add('show');setTimeout(()=>bad[0].focus(),20);toast('Bitte prüfe die markierten Angaben.');return false}s?.classList.remove('show');return true}function next(){if(!validate())return;if(returnReview&&step<5){returnReview=false;show(5)}else show(step+1)}document.querySelectorAll('.next').forEach(b=>b.onclick=next);document.querySelectorAll('.back').forEach(b=>b.onclick=()=>show(step-1));f.addEventListener('input',e=>{e.target.removeAttribute?.('aria-invalid');e.target.closest?.('.field')?.classList.remove('bad')});f.addEventListener('change',e=>{if(e.target.name==='vat')tax();if(e.target.type==='radio')choices();rules();save()});$('email').oninput=rules;$('email2').oninput=rules;$('country').onchange=country;$('vatId').oninput=e=>e.target.value=e.target.value.toUpperCase().replace(/\s/g,'');$('iban').oninput=e=>{let x=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,34);e.target.value=x.replace(/(.{4})/g,'$1 ').trim();rules()};$('bic').oninput=e=>e.target.value=e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'');const esc=s=>String(s||'—').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m])),val=n=>$(n)?.value||'—';function review(){applySponsorLink();const c={DE:'Deutschland',AT:'Österreich'}[val('country')]||val('country'),v=val('vat')==='ja'?'Ja':'Nein',cards=[['Persönliche Angaben',0,[['Name',val('firstName')+' '+val('lastName')],['Geburtsdatum',val('birthDate')],['E-Mail',val('email')],['Adresse',val('street')+' '+val('houseNo')+', '+val('postal')+' '+val('city')+', '+c],['Telefon',val('phone')],['Mobiltelefon',val('mobile')]]],['Geschäftliche Angaben',1,[['Mehrwertsteuerpflichtig',v],...(v==='Ja'?[['Steuernummer',val('taxNo')],['USt.-ID',val('vatId')],['Finanzamt',val('taxOffice')]]:[]),['Startoption',val('startOption')]]],['Auszahlungskonto',2,[['IBAN',val('iban')],['BIC',val('bic')],['Kreditinstitut',val('bank')],['Kontoinhaber',val('holder')]]],['Start & Zuordnung',3,[['Startdatum',val('startDate')],['Ort',val('location')],['Förderer',val('sponsor')],['VI-Partner-Nr.',val('sponsorId')],['Vitarights-Führungskraft',val('leader')]]]];document.getElementById('review').innerHTML=cards.map(c=>`<section class="review-card"><div class="review-head"><h3>${esc(c[0])}</h3><button class="edit" type="button" data-edit="${c[1]}">Bearbeiten</button></div>${c[2].map(r=>`<div class="review-row"><span>${esc(r[0])}</span><strong>${esc(r[1])}</strong></div>`).join('')}</section>`).join('');document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{returnReview=true;show(+b.dataset.edit)})}const canvas=document.getElementById('sig'),ctx=canvas.getContext('2d');let draw=false;const pt=e=>{const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height}};canvas.onpointerdown=e=>{draw=true;const q=pt(e);ctx.beginPath();ctx.moveTo(q.x,q.y);canvas.setPointerCapture(e.pointerId)};canvas.onpointermove=e=>{if(!draw)return;const q=pt(e);ctx.lineWidth=4;ctx.lineCap='round';ctx.strokeStyle='#f6f8f7';ctx.lineTo(q.x,q.y);ctx.stroke();signed=true;sigState.textContent='Unterschrift erfasst.'};canvas.onpointerup=canvas.onpointercancel=()=>draw=false;document.getElementById('clear').onclick=()=>{ctx.clearRect(0,0,canvas.width,canvas.height);signed=false;sigState.textContent='Bitte im Feld unterschreiben.'};f.onsubmit=e=>{e.preventDefault();if(!checkSponsorLink())return;if(step!==5){next();return;}if(!validate())return;if(!signed){const s=p[5].querySelector('.error-summary');s.innerHTML='<strong>Unterschrift fehlt.</strong>Bitte unterschreibe unterhalb der Zusammenfassung.';s.classList.add('show');canvas.scrollIntoView({behavior:'smooth',block:'center'});return}try{sessionStorage.removeItem(draftKey);sessionStorage.removeItem('vrDraft');}catch{}f.style.display='none';document.querySelector('.progress').style.display='none';success.style.display='block';success.classList.add('active');scrollTo({top:0,behavior:'smooth'})};// Drafts are isolated by sponsor to prevent attribution/name leakage between links.
-// Storage is optional: a blocked/quota-limited sessionStorage must not stop the form.
-function save(){
-  if(sponsorLink.mode==='invalid')return;
+
+function localDate(date=new Date()){
+  return [date.getFullYear(),String(date.getMonth()+1).padStart(2,'0'),String(date.getDate()).padStart(2,'0')].join('-');
+}
+function realDate(text){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(text))return false;
+  const [y,m,d]=text.split('-').map(Number);
+  const date=new Date(text+'T12:00:00');
+  return Number.isFinite(date.getTime())&&date.getFullYear()===y&&date.getMonth()+1===m&&date.getDate()===d;
+}
+function applyRules(){
+  applySponsorLink();
+  const taxed=value('vat')==='ja';byId('tax').hidden=!taxed;
+  ['taxNo','vatId','taxOffice'].forEach(name=>{
+    const field=control(name);field.required=taxed;field.disabled=!taxed;
+    if(!taxed){field.setCustomValidity('');renderField(name,null);}
+  });
+  form.querySelectorAll('.choice').forEach(label=>label.classList.toggle('selected',!!label.querySelector('input:checked')));
+  const now=new Date(),adult=new Date(now.getFullYear()-18,now.getMonth(),now.getDate());
+  control('birthDate').max=localDate(adult);control('startDate').min=localDate(now);
+  control('postal').pattern=value('country')==='AT'?'[0-9]{4}':'[0-9]{5}';
+  control('vatId').pattern=value('country')==='AT'?'ATU[0-9]{8}':'DE[0-9]{9}';
+}
+function firstControl(name){const c=control(name);return c instanceof RadioNodeList?c[0]:c;}
+function issue(key,params={}){return {key,params};}
+function ibanOK(raw,country){
+  const iban=raw.replace(/\s/g,'').toUpperCase();
+  if(country==='DE'&&!/^DE[0-9]{20}$/.test(iban))return false;
+  if(country==='AT'&&!/^AT[0-9]{18}$/.test(iban))return false;
+  if(!/^(DE[0-9]{20}|AT[0-9]{18})$/.test(iban))return false;
+  let remainder=0;
+  for(const letter of iban.slice(4)+iban.slice(0,4)){
+    const digits=/[A-Z]/.test(letter)?String(letter.charCodeAt(0)-55):letter;
+    for(const digit of digits)remainder=(remainder*10+Number(digit))%97;
+  }
+  return remainder===1;
+}
+function fieldIssue(name){
+  const field=firstControl(name);if(!field||field.disabled)return null;
+  // Recompute from current DOM values, including values inserted by autofill
+  // without any input/change event. Never depend on stale customValidity.
+  field.setCustomValidity('');
+  const v=value(name);
+  if(field.type==='radio')return field.required&&!v?issue('radioRequired',{field:t(name)}):null;
+  if(field.type==='checkbox')return field.required&&!field.checked?issue('consentRequired',{field:t(name)}):null;
+  if(field.validity.badInput)return issue(field.type==='date'?'badDate':'badValue',{field:t(name)});
+  if(!v)return field.required?issue('required',{field:t(name)}):null;
+  if(field.maxLength>0&&v.length>field.maxLength)return issue('longValue',{n:field.maxLength});
+  if((name==='email'||name==='email2')&&(field.validity.typeMismatch||/\s/.test(v)))return issue('badEmail');
+  if(name==='email2'&&v!==value('email'))return issue('emailMismatch');
+  if(name==='birthDate'){
+    if(!realDate(v))return issue('badBirth');
+    if(v>field.max)return issue('underAge');
+  }
+  if(name==='startDate'){
+    if(!realDate(v))return issue('badDate');
+    if(v<localDate())return issue('pastStart');
+  }
+  if(name==='houseNo'&&!/^[0-9]{1,5}[a-zA-Z]?(?:[\-\/][0-9a-zA-Z]{1,5})?$/.test(v))return issue('badHouse');
+  if(name==='postal'&&!new RegExp(value('country')==='AT'?'^[0-9]{4}$':'^[0-9]{5}$').test(v))return issue(value('country')==='AT'?'badPostalAT':'badPostalDE');
+  if((name==='phone'||name==='mobile')&&!/^\+?[0-9][0-9 ()/.\-]{5,38}$/.test(v))return issue('badPhone');
+  if(name==='vatId'&&!new RegExp(value('country')==='AT'?'^ATU[0-9]{8}$':'^DE[0-9]{9}$').test(v.toUpperCase().replace(/\s/g,'')))return issue(value('country')==='AT'?'badVatAT':'badVatDE');
+  if(name==='iban'&&!ibanOK(v,value('country')))return issue('badIban');
+  if(name==='bic'&&!/^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$/.test(v.toUpperCase()))return issue('badBic');
+  if(name==='sponsorId'&&!/^[0-9]+$/.test(v))return issue('badSponsor');
+  if(name==='country'&&!['DE','AT'].includes(v))return issue('badValue',{field:t(name)});
+  return null;
+}
+function renderField(name,problem){
+  const field=firstControl(name);if(!field)return;
+  const box=field.closest('[data-field]'),error=byId(name+'Error');
+  if(box)box.classList.toggle('bad',!!problem);
+  const group=control(name);
+  const controls=group instanceof RadioNodeList?Array.from(group):[field];
+  controls.forEach(input=>{input.setAttribute('aria-invalid',String(!!problem));input.setCustomValidity(problem?t(problem.key,problem.params):'');});
+  if(error){error.hidden=!problem;error.textContent=problem?t(problem.key,problem.params):'';}
+}
+function focusField(name){
+  const field=firstControl(name);if(!field)return;
+  field.focus({preventScroll:true});
+  (field.closest('[data-field]')||field).scrollIntoView({block:'center',behavior:scrollBehavior()});
+}
+function renderSummary(index,errors){
+  const box=panels[index].querySelector('.error-summary');box.replaceChildren();box.hidden=!errors.length;
+  if(!errors.length)return;
+  const title=document.createElement('strong');title.textContent=t('errorTitle');
+  const intro=document.createElement('p');intro.textContent=errors.length===1?t('errorOne'):t('errorCount',{n:errors.length});
+  const list=document.createElement('ul');
+  errors.forEach(({name,problem})=>{
+    const li=document.createElement('li'),a=document.createElement('a');
+    a.href='#'+firstControl(name).id;a.textContent=t(problem.key,problem.params);
+    a.addEventListener('click',event=>{event.preventDefault();focusField(name);});li.append(a);list.append(li);
+  });box.append(title,intro,list);
+}
+function errorsFor(index){
+  const errors=[],names=new Set();
+  panels[index].querySelectorAll('input,select').forEach(field=>{
+    if(!field.name||names.has(field.name))return;names.add(field.name);
+    const problem=fieldIssue(field.name);renderField(field.name,problem);
+    if(problem)errors.push({name:field.name,problem});
+  });
+  stepErrors.set(index,errors);renderSummary(index,errors);return errors;
+}
+function validate(index=step,focus=true){
+  if(!linkOK())return false;
+  applyRules();attempted.add(index);const errors=errorsFor(index);
+  if(errors.length&&focus)focusField(errors[0].name);
+  return errors.length===0;
+}
+function validateAll(){
+  if(!linkOK())return false;applyRules();
+  for(let i=0;i<5;i++){
+    attempted.add(i);const errors=errorsFor(i);
+    if(errors.length){returnReview=true;showStep(i,false);focusField(errors[0].name);return false;}
+  }return true;
+}
+function normalise(field){
+  if(!field.name||field.type==='radio'||field.type==='checkbox'||field.type==='date'||field.tagName==='SELECT')return;
+  if(field.name==='sponsorId'&&sponsorLink.mode==='linked'){applySponsorLink();return;}
+  field.value=field.value.trim();
+  if(field.name==='iban')field.value=field.value.toUpperCase().replace(/\s/g,'').replace(/(.{4})/g,'$1 ').trim();
+  if(field.name==='bic'||field.name==='vatId')field.value=field.value.toUpperCase().replace(/\s/g,'');
+}
+
+function updateNavigation(){
+  const count=t('progressCount',{n:step+1});byId('stepTitle').textContent=t('s'+step);byId('progressCount').textContent=count;
+  const percent=Math.round((step+1)/panels.length*100);byId('bar').style.width=percent+'%';
+  const track=byId('progressTrack');track.setAttribute('aria-label',t('progressLabel'));track.setAttribute('aria-valuenow',String(percent));track.setAttribute('aria-valuetext',count+': '+t('s'+step));
+  form.querySelectorAll('.next').forEach(button=>{button.textContent=t(returnReview?'returnReview':button.dataset.nextKey);});
+  panels.forEach((panel,index)=>{panel.querySelector('.edit-note').hidden=!(returnReview&&step===index);});
+}
+function showStep(index,focus=true){
+  applyRules();step=Math.max(0,Math.min(5,index));
+  panels.forEach((panel,i)=>{panel.hidden=i!==step;});
+  form.hidden=false;byId('success').hidden=true;byId('progress').hidden=false;finished=false;
+  updateNavigation();if(step===5){returnReview=false;renderReview();updateNavigation();}
+  if(focus){const heading=byId('heading'+step);heading.focus({preventScroll:true});heading.scrollIntoView({block:'start',behavior:scrollBehavior()});}
+  if(step===5)requestAnimationFrame(resizeCanvas);
+}
+function next(){
+  if(!validate())return;
+  saveDraft();showStep(returnReview?5:step+1);
+}
+function dateDisplay(raw){
+  if(!realDate(raw))return raw||t('notProvided');
+  return new Intl.DateTimeFormat(lang==='de'?'de-DE':'en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(new Date(raw+'T12:00:00'));
+}
+function display(name){
+  const v=value(name);if(!v)return t('notProvided');
+  if(name==='country')return t(v==='AT'?'countryAT':'countryDE');
+  if(name==='birthDate'||name==='startDate')return dateDisplay(v);
+  if(name==='vat')return t(v==='ja'?'yes':'no');
+  if(name==='startOption')return t(v==='Erfolgsstart Premium'?'premium':'business');
+  return v;
+}
+function renderReview(){
+  applySponsorLink();const review=byId('review');review.replaceChildren();
+  const groups=[
+    ['s0',0,[['reviewName',value('firstName')+' '+value('lastName')],['birthDate',display('birthDate')],['email',display('email')],['reviewAddress',value('street')+' '+value('houseNo')+', '+value('postal')+' '+value('city')+', '+display('country')],['phone',display('phone')],['mobile',display('mobile')]]],
+    ['s1',1,[['vat',display('vat')],...(value('vat')==='ja'?[['taxNo',display('taxNo')],['vatId',display('vatId')],['taxOffice',display('taxOffice')]]:[]),['startOption',display('startOption')]]],
+    ['s2',2,[['iban',display('iban')],['bic',display('bic')],['bank',display('bank')],['holder',display('holder')]]],
+    ['s3',3,[['startDate',display('startDate')],['location',display('location')],['sponsor',display('sponsor')],['sponsorId',display('sponsorId')],['leader',display('leader')]]],
+    ['s4',4,['c1','c2','c3'].map(name=>[name,t(control(name).checked?'confirmed':'notConfirmed')])]
+  ];
+  groups.forEach(([key,index,rows])=>{
+    const card=document.createElement('section');card.className='review-card';
+    const head=document.createElement('div');head.className='review-head';
+    const h=document.createElement('h3');h.textContent=t(key);
+    const button=document.createElement('button');button.type='button';button.className='edit';button.dataset.edit=String(index);button.textContent=t('edit');button.setAttribute('aria-label',t('editLabel',{section:t(key)}));
+    button.addEventListener('click',()=>{returnReview=true;showStep(index);});head.append(h,button);
+    const dl=document.createElement('dl');rows.forEach(([label,text])=>{
+      const row=document.createElement('div');row.className='review-row';
+      const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=t(label);dd.textContent=text;row.append(dt,dd);dl.append(row);
+    });card.append(head,dl);review.append(card);
+  });
+}
+
+// Normalised stroke coordinates preserve the signature across theme/language
+// changes and screen rotation. Signature data remains in memory, never storage.
+const canvas=byId('sig'),ctx=canvas.getContext('2d');
+let strokes=[],activeStroke=null,activePointer=null,signatureSnapshot='';
+let signatureMissing=false;
+function hasSignature(){return strokes.some(stroke=>stroke.length>1);}
+function formSnapshot(){
+  return JSON.stringify(Array.from(new FormData(form).entries()).map(([name,v])=>[name,String(v).trim()]));
+}
+function redrawSignature(){
+  if(!ctx)return;ctx.clearRect(0,0,canvas.width,canvas.height);
+  const ratio=canvas.width/Math.max(1,canvas.getBoundingClientRect().width);
+  ctx.lineWidth=2.3*ratio;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=getComputedStyle(root).getPropertyValue('--text').trim();
+  strokes.forEach(stroke=>{
+    if(stroke.length<2)return;ctx.beginPath();
+    stroke.forEach((point,i)=>{const x=point[0]*canvas.width,y=point[1]*canvas.height;i?ctx.lineTo(x,y):ctx.moveTo(x,y);});ctx.stroke();
+  });
+}
+function resizeCanvas(){
+  const rect=canvas.getBoundingClientRect();if(!rect.width||!rect.height)return;
+  const scale=Math.min(window.devicePixelRatio||1,2),w=Math.round(rect.width*scale),h=Math.round(rect.height*scale);
+  if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
+  redrawSignature();
+}
+function point(event){const r=canvas.getBoundingClientRect();return [Math.max(0,Math.min(1,(event.clientX-r.left)/r.width)),Math.max(0,Math.min(1,(event.clientY-r.top)/r.height))];}
+function signatureUI(){
+  byId('sigState').textContent=t(hasSignature()?'sigDone':'sigEmpty');
+  byId('signatureError').hidden=!signatureMissing;byId('signatureError').textContent=signatureMissing?t('sigMissing'):'';
+  byId('signatureSection').classList.toggle('bad',signatureMissing);canvas.setAttribute('aria-invalid',String(signatureMissing));
+}
+function clearSignature(notify=false){strokes=[];activeStroke=null;activePointer=null;signatureSnapshot='';signatureMissing=false;redrawSignature();signatureUI();if(notify)announce('sigChanged');}
+canvas.addEventListener('pointerdown',event=>{
+  if(event.pointerType==='mouse'&&event.button!==0||activePointer!==null)return;
+  event.preventDefault();resizeCanvas();activePointer=event.pointerId;activeStroke=[point(event)];strokes.push(activeStroke);canvas.setPointerCapture(event.pointerId);
+});
+canvas.addEventListener('pointermove',event=>{
+  if(!activeStroke||activePointer!==event.pointerId)return;event.preventDefault();
+  const q=point(event),last=activeStroke[activeStroke.length-1];
+  if(Math.abs(q[0]-last[0])+Math.abs(q[1]-last[1])<0.002)return;
+  activeStroke.push(q);signatureMissing=false;signatureSnapshot=formSnapshot();redrawSignature();signatureUI();
+});
+function endStroke(event){if(event.pointerId!==activePointer)return;activeStroke=null;activePointer=null;signatureUI();}
+canvas.addEventListener('pointerup',endStroke);canvas.addEventListener('pointercancel',endStroke);canvas.addEventListener('lostpointercapture',endStroke);
+if(typeof ResizeObserver!=='undefined')new ResizeObserver(resizeCanvas).observe(canvas);
+else window.addEventListener('resize',resizeCanvas);
+byId('clear').addEventListener('click',()=>clearSignature());
+
+function themeUI(){
+  const light=root.dataset.theme==='light',button=byId('themeToggle');
+  button.setAttribute('aria-pressed',String(light));button.setAttribute('aria-label',t(light?'darkAction':'lightAction'));button.title=t(light?'darkAction':'lightAction');
+  document.querySelector('meta[name="theme-color"]').content=light?'#FAF8FE':'#0B0714';
+}
+function localise(){
+  root.lang=lang;document.title=t('pageTitle');
+  document.querySelectorAll('[data-i18n]').forEach(node=>{node.textContent=t(node.dataset.i18n);});
+  document.querySelectorAll('[data-i18n-aria]').forEach(node=>node.setAttribute('aria-label',t(node.dataset.i18nAria)));
+  const button=byId('langSwitch');button.textContent=lang==='de'?'EN':'DE';button.lang=lang==='de'?'en':'de';button.title=lang==='de'?'English':'Deutsch';button.setAttribute('aria-label',lang==='de'?'Switch to English':'Zur deutschen Sprache wechseln');
+  applyRules();updateNavigation();themeUI();signatureUI();
+  attempted.forEach(index=>errorsFor(index));
+  // Also translate a field error triggered by blur before the first Next click.
+  form.querySelectorAll('[data-field].bad').forEach(box=>renderField(box.dataset.field,fieldIssue(box.dataset.field)));
+  if(step===5)renderReview();
+  if(toastKey)byId('toast').textContent=t(toastKey,toastParams);
+}
+byId('langSwitch').addEventListener('click',()=>{
+  lang=lang==='de'?'en':'de';writePreference('pm-form-lang',lang);localise();
+});
+byId('themeToggle').addEventListener('click',()=>{
+  root.dataset.theme=root.dataset.theme==='light'?'dark':'light';writePreference('pm-form-theme',root.dataset.theme);themeUI();redrawSignature();
+});
+
+// Preserve the existing sponsor-specific draft keys. No IBAN, BIC, signature
+// or contract confirmations are persisted. Storage errors never block the flow.
+let saveTimer;
+function saveDraft(){
+  if(sponsorLink.mode==='invalid'||finished)return;
   applySponsorLink();
   try{
-    const draft={};
-    new FormData(f).forEach((value,key)=>{if(key!=='iban'&&key!=='bic')draft[key]=value;});
+    const draft={};new FormData(form).forEach((v,k)=>{if(!['iban','bic','c1','c2','c3'].includes(k))draft[k]=v;});
     sessionStorage.setItem(draftKey,JSON.stringify(draft));
-  }catch{}
+  }catch{/* Private browsing/storage quotas must not break the form. */}
 }
-function restore(){
+function restoreDraft(){
   if(sponsorLink.mode==='invalid')return;
   try{
     let raw=sessionStorage.getItem(draftKey);
     if(!raw){
-      const legacy=JSON.parse(sessionStorage.getItem('vrDraft')||'null');
-      if(legacy&&typeof legacy==='object'&&!Array.isArray(legacy)&&
-        (sponsorLink.mode==='manual'||legacy.sponsorId===sponsorLink.value))raw=JSON.stringify(legacy);
+      const old=JSON.parse(sessionStorage.getItem('vrDraft')||'null');
+      if(old&&typeof old==='object'&&!Array.isArray(old)&&(sponsorLink.mode==='manual'||old.sponsorId===sponsorLink.value))raw=JSON.stringify(old);
     }
-    const draft=JSON.parse(raw||'{}');
-    if(!draft||typeof draft!=='object'||Array.isArray(draft))return;
-    // Iterate actual controls, not arbitrary keys/selectors from browser storage.
-    Array.from(f.elements).forEach(field=>{
-      if(!field.name||!Object.prototype.hasOwnProperty.call(draft,field.name))return;
-      if(sponsorLink.mode==='linked'&&field.name==='sponsorId')return;
-      if(field.name==='iban'||field.name==='bic')return;
-      const value=draft[field.name];
-      if(typeof value!=='string')return;
-      if(field.type==='radio')field.checked=field.value===value;
-      else if(field.type!=='checkbox')field.value=value;
+    const draft=JSON.parse(raw||'{}');if(!draft||typeof draft!=='object'||Array.isArray(draft))return;
+    Array.from(form.elements).forEach(field=>{
+      if(!field.name||!Object.prototype.hasOwnProperty.call(draft,field.name)||['iban','bic','c1','c2','c3'].includes(field.name))return;
+      if(field.name==='sponsorId'&&sponsorLink.mode==='linked')return;
+      const v=draft[field.name];if(typeof v!=='string')return;
+      if(field.type==='radio')field.checked=field.value===v;
+      else if(field.type!=='checkbox')field.value=v;
     });
-  }catch{}
+  }catch{/* Invalid legacy drafts are ignored without blocking the user. */}
   applySponsorLink();
 }
-f.addEventListener('blur',save,true);const now=new Date(),adult=new Date();adult.setFullYear(now.getFullYear()-18);$('birthDate').max=adult.toISOString().slice(0,10);$('startDate').min=now.toISOString().slice(0,10);restore();applySponsorLink();rules();choices();show(0)})();</script></body></html>
+function inputChanged(event){
+  const field=event.target;if(!field.name||!field.matches('input,select'))return;
+  if(field.name==='sponsorId')applySponsorLink();applyRules();
+  if(hasSignature()&&signatureSnapshot&&signatureSnapshot!==formSnapshot())clearSignature(true);
+  const index=Number(field.closest('[data-step]').dataset.step);
+  if(attempted.has(index))errorsFor(index);
+  else if(field.closest('[data-field]')?.classList.contains('bad'))renderField(field.name,fieldIssue(field.name));
+  clearTimeout(saveTimer);saveTimer=setTimeout(saveDraft,200);
+}
+form.addEventListener('input',inputChanged);
+form.addEventListener('change',event=>{normalise(event.target);inputChanged(event);});
+form.addEventListener('focusout',event=>{
+  const field=event.target;if(!field.name||!field.matches('input,select')||field.disabled)return;
+  normalise(field);applyRules();
+  if(field.type!=='radio'&&field.type!=='checkbox')renderField(field.name,fieldIssue(field.name));
+  const index=Number(field.closest('[data-step]').dataset.step);if(attempted.has(index))errorsFor(index);
+  saveDraft();
+});
+form.querySelectorAll('.next').forEach(button=>button.addEventListener('click',next));
+form.querySelectorAll('.back').forEach(button=>button.addEventListener('click',()=>{saveDraft();showStep(Math.max(0,step-1));}));
+form.addEventListener('submit',event=>{
+  event.preventDefault();if(!linkOK())return;
+  if(step!==5){next();return;}
+  if(!validateAll())return;
+  if(hasSignature()&&signatureSnapshot!==formSnapshot())clearSignature(true);
+  if(!hasSignature()){
+    signatureMissing=true;signatureUI();canvas.focus({preventScroll:true});byId('signatureSection').scrollIntoView({block:'center',behavior:scrollBehavior()});return;
+  }
+  // Deliberately no network request. Do not show a real submission success until
+  // Railway /api/submit and the authenticated Base44 function are implemented.
+  clearTimeout(saveTimer);finished=true;
+  try{sessionStorage.removeItem(draftKey);sessionStorage.removeItem('vrDraft');}catch{}
+  form.hidden=true;byId('progress').hidden=true;byId('success').hidden=false;
+  byId('successTitle').focus({preventScroll:true});byId('success').scrollIntoView({block:'start',behavior:scrollBehavior()});
+});
+byId('backReview').addEventListener('click',()=>showStep(5));
+form.addEventListener('reset',()=>queueMicrotask(()=>{
+  clearSignature();attempted.clear();stepErrors.clear();returnReview=false;applyRules();localise();showStep(0);
+}));
+window.addEventListener('pageshow',()=>{applyRules();localise();resizeCanvas();});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')saveDraft();});
+restoreDraft();applyRules();showStep(0,false);localise();
+})();
+</script>
+</body>
+</html>
