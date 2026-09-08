@@ -1,33 +1,123 @@
 // Inserted into the existing form closure by build.mjs. No secrets in this file.
 const apiText={
- de:{apiSubmit:'Antrag übermitteln →',apiSending:'Wird übermittelt …',apiNote:'Die Übermittlung ist aktiv. Nach dem Absenden werden die Daten an PromptMarketer übermittelt. Für den PROD-Test bitte ausschließlich eigene oder ausdrücklich freigegebene Testdaten verwenden.',apiLoading:'Verbindung zur Übermittlung wird vorbereitet …',apiUnavailable:'Die Übermittlung ist noch nicht verfügbar. Deine Eingaben bleiben erhalten. Bitte den Betreiber kontaktieren oder die Verbindung erneut prüfen.',apiRetryConnection:'Verbindung erneut prüfen',apiFailed:'Übermittlung nicht abgeschlossen',apiStoredTitle:'Antrag gespeichert',apiStoredText:'PromptMarketer hat die Speicherung bestätigt. Dies ist noch keine Freischaltung als Vitarights-Partner und keine Gegenzeichnung des Vertrags.',apiManualTitle:'Manuelle Prüfung erforderlich',apiManualText:'Der Antrag wurde nicht in der Antragstabelle gespeichert. Der Server bestätigt eine Benachrichtigung an die Administration. Bitte nicht erneut absenden und den Betreiber kontaktieren.',apiUnknown:'Keine eindeutige Bestätigung erhalten. Der Antrag könnte bereits verarbeitet worden sein. Bitte nicht erneut absenden. Kläre den Status mit dem Betreiber anhand der Referenz.',apiNoStore:'Der Antrag wurde nicht gespeichert und eine Admin-Benachrichtigung wurde nicht bestätigt. Bitte den Betreiber kontaktieren.',apiAuth:'Der Zieldienst hat die Server-Anmeldung abgelehnt. Bitte den Betreiber informieren. Deine Eingaben bleiben erhalten.',apiForbidden:'Der Zieldienst oder ein vorgeschalteter Schutz hat die Anfrage blockiert. Bitte den Betreiber informieren.',apiValidation:'Bitte die markierten Angaben prüfen. Der Server hat den Antrag nicht akzeptiert.',apiServerField:'Bitte dieses Feld prüfen; der Server hat die Angabe abgelehnt.',apiSession:'Die sichere Formular-Sitzung ist abgelaufen. Bitte die Verbindung erneut prüfen; deine Eingaben bleiben erhalten.',apiRate:'Zu viele Anfragen. Bitte mindestens eine Minute warten und danach erneut versuchen.',apiBusy:'Die Übermittlung ist ausgelastet. Bitte später erneut versuchen.',apiSponsor:'Die Förderernummer stimmt nicht mit dem Einladungslink überein. Bitte den richtigen Link neu öffnen.',apiLarge:'Die Anfrage ist zu groß oder die Unterschrift ungültig. Bitte die Unterschrift neu zeichnen.',apiNetwork:'Die Serverantwort fehlt. Der Antrag könnte bereits verarbeitet worden sein. Bitte nicht erneut absenden und mit der Referenz beim Betreiber nachfragen.',apiRef:'Referenz',apiId:'Antrags-ID',apiFoot:'Partnerformular · Version 3.0 · Servergestützte Übermittlung',apiUnknownLock:'Status zuerst klären',apiOther:'Der Antrag konnte nicht bestätigt werden. Bitte mit der Referenz beim Betreiber nachfragen.'},
- en:{apiSubmit:'Submit application →',apiSending:'Submitting …',apiNote:'Submission is enabled. Submitting sends your data to PromptMarketer. For the production test, only use your own or explicitly authorised test data.',apiLoading:'Preparing the secure submission connection …',apiUnavailable:'Submission is not available yet. Your entries are retained. Please contact the operator or check the connection again.',apiRetryConnection:'Check connection again',apiFailed:'Submission not completed',apiStoredTitle:'Application saved',apiStoredText:'PromptMarketer has confirmed that your application was saved. This does not activate your Vitarights partnership or countersign the contract.',apiManualTitle:'Manual review required',apiManualText:'The application was not saved in the application table. The server confirms that the administration was notified. Please do not submit again; contact the operator.',apiUnknown:'No definite confirmation was received. Your application may already have been processed. Please do not submit again. Contact the operator with the reference to clarify its status.',apiNoStore:'The application was not saved and an admin notification was not confirmed. Please contact the operator.',apiAuth:'The destination rejected the server credentials. Please inform the operator. Your entries are retained.',apiForbidden:'The destination or its security gateway blocked the request. Please inform the operator.',apiValidation:'Please review the highlighted entries. The server did not accept the application.',apiServerField:'Please review this field; the server rejected this entry.',apiSession:'Your secure form session has expired. Please check the connection again; your entries are retained.',apiRate:'Too many requests. Please wait at least one minute before trying again.',apiBusy:'Submission is currently busy. Please try again later.',apiSponsor:'The sponsor number does not match the invitation link. Please reopen the correct invitation link.',apiLarge:'The request is too large or the signature is invalid. Please draw your signature again.',apiNetwork:'The server response is missing. Your application may have been processed. Please do not resubmit; contact the operator with the reference.',apiRef:'Reference',apiId:'Application ID',apiFoot:'Partner application · Version 3.0 · Server-side submission',apiUnknownLock:'Clarify status first',apiOther:'The application could not be confirmed. Please contact the operator with the reference.'}
+  "de": {
+    "apiSubmit": "Antrag absenden →",
+    "apiSending": "Wird gesendet …",
+    "apiUnavailable": "Dein Antrag kann gerade nicht gesendet werden. Deine Angaben bleiben erhalten. Bitte versuche es später erneut.",
+    "apiBeforeSend": "Die Verbindung konnte nicht hergestellt werden. Es wurde nichts gesendet. Bitte versuche es erneut.",
+    "apiFailed": "Dein Antrag wurde noch nicht gesendet.",
+    "apiStoredTitle": "Dein Antrag ist eingegangen",
+    "apiStoredText": "Danke! Dein Antrag wird jetzt geprüft. Du bist damit noch nicht als Vitarights-Partner freigeschaltet.",
+    "apiManualTitle": "Dein Antrag benötigt eine Prüfung",
+    "apiManualText": "Dein Antrag konnte nicht automatisch zugeordnet werden. Unser Team wurde informiert. Bitte sende den Antrag nicht erneut.",
+    "apiUnknown": "Wir konnten den Eingang nicht eindeutig bestätigen. Bitte sende den Antrag nicht erneut und kläre den Status mit unserem Team. Halte dafür die Referenz bereit.",
+    "apiNoStore": "Dein Antrag konnte nicht gespeichert werden. Bitte wende dich mit der Referenz an unser Team.",
+    "apiAuth": "Dein Antrag konnte gerade nicht gesendet werden. Deine Angaben bleiben erhalten. Bitte versuche es später erneut.",
+    "apiForbidden": "Dein Antrag konnte gerade nicht gesendet werden. Deine Angaben bleiben erhalten. Bitte versuche es später erneut.",
+    "apiValidation": "Bitte korrigiere die markierten Angaben.",
+    "apiServerField": "Bitte prüfe diese Angabe.",
+    "apiSession": "Bitte versuche es erneut. Deine Angaben bleiben erhalten.",
+    "apiRate": "Bitte warte eine Minute und versuche es erneut.",
+    "apiBusy": "Bitte versuche es in wenigen Minuten erneut. Deine Angaben bleiben erhalten.",
+    "apiSponsor": "Bitte öffne den richtigen Einladungslink deines Förderers.",
+    "apiLarge": "Bitte lösche deine Unterschrift und unterschreibe noch einmal.",
+    "apiNetwork": "Wir konnten den Eingang nicht eindeutig bestätigen. Bitte sende den Antrag nicht erneut und kläre den Status mit unserem Team. Halte dafür die Referenz bereit.",
+    "apiRef": "Referenz",
+    "apiId": "Antragsnummer",
+    "apiUnknownLock": "Eingang zuerst klären",
+    "apiOther": "Bitte wende dich mit der Referenz an unser Team.",
+    "heroTag": "Partnerantrag",
+    "heroSub": "Fülle deinen Partnerantrag aus und prüfe deine Angaben vor dem Absenden.",
+    "s3": "Start & Förderer",
+    "sub0": "Deine persönlichen Angaben.",
+    "sub1": "Deine Tätigkeit und die gewünschte Startoption.",
+    "sub2": "Dein Konto für Provisionsauszahlungen.",
+    "sub3": "Wann möchtest du starten und wer hat dich eingeladen?",
+    "ibanHint": "Die IBAN findest du in deinem Onlinebanking.",
+    "linkedHint": "",
+    "linkedNotice": "",
+    "sponsorHint": "",
+    "invalidLink": "Dieser Einladungslink ist ungültig. Bitte frage deinen Förderer nach einem neuen Link.",
+    "invalidLinkHint": "Bitte verwende einen gültigen Einladungslink.",
+    "editMode": "",
+    "counterSign": "Vitarights prüft und bestätigt deinen Antrag anschließend."
+  },
+  "en": {
+    "apiSubmit": "Submit application →",
+    "apiSending": "Sending …",
+    "apiUnavailable": "Your application cannot be sent right now. Your entries are retained. Please try again later.",
+    "apiBeforeSend": "We could not connect. Nothing was sent. Please try again.",
+    "apiFailed": "Your application has not been sent yet.",
+    "apiStoredTitle": "Your application has been received",
+    "apiStoredText": "Thank you! Your application will now be reviewed. Your Vitarights partnership is not active yet.",
+    "apiManualTitle": "Your application needs a review",
+    "apiManualText": "We could not automatically assign your application. Our team has been notified. Please do not submit it again.",
+    "apiUnknown": "We could not confirm receipt. Please do not submit again. Contact our team with the reference to check its status.",
+    "apiNoStore": "Your application could not be saved. Please contact our team with the reference.",
+    "apiAuth": "Your application could not be sent right now. Your entries are retained. Please try again later.",
+    "apiForbidden": "Your application could not be sent right now. Your entries are retained. Please try again later.",
+    "apiValidation": "Please correct the highlighted entries.",
+    "apiServerField": "Please check this entry.",
+    "apiSession": "Please try again. Your entries are retained.",
+    "apiRate": "Please wait one minute and try again.",
+    "apiBusy": "Please try again in a few minutes. Your entries are retained.",
+    "apiSponsor": "Please open the correct invitation link from your sponsor.",
+    "apiLarge": "Please clear your signature and sign again.",
+    "apiNetwork": "We could not confirm receipt. Please do not submit again. Contact our team with the reference to check its status.",
+    "apiRef": "Reference",
+    "apiId": "Application number",
+    "apiUnknownLock": "Check receipt first",
+    "apiOther": "Please contact our team with the reference.",
+    "heroTag": "Partner application",
+    "heroSub": "Complete your partner application and review your details before submitting.",
+    "s3": "Start & sponsor",
+    "sub0": "Your personal details.",
+    "sub1": "Your business and preferred starting option.",
+    "sub2": "Your account for commission payments.",
+    "sub3": "When would you like to start, and who invited you?",
+    "ibanHint": "You can find your IBAN in your online banking.",
+    "linkedHint": "",
+    "linkedNotice": "",
+    "sponsorHint": "",
+    "invalidLink": "This invitation link is invalid. Please ask your sponsor for a new link.",
+    "invalidLinkHint": "Please use a valid invitation link.",
+    "editMode": "",
+    "counterSign": "Vitarights will review and confirm your application."
+  }
 };
 for(const language of ['de','en'])Object.assign(I18N[language],apiText[language]);
 // Keep project_id server-owned. The server defaults it to the known Base44 app ID;
 // operators can explicitly override it with BASE44_PROJECT_ID.
 let apiReady=false,apiLoading=false,apiToken='',sending=false,submissionOutcome=null;
 let apiProblem=null,unknownResult=false,requestId='',requestPayload=null;
+let connectionPromise=null;
 const attemptStorage='pm-pending:'+draftKey;
-const notice=byId('localModeNotice');notice.replaceChildren();
-const noticeText=document.createElement('span'),connectionButton=document.createElement('button');
-connectionButton.type='button';connectionButton.style.marginTop='12px';connectionButton.style.display='block';
-notice.append(noticeText,connectionButton);
+// One contextual error at the point of submission, never setup banners.
+byId('localModeNotice')?.remove();
 const apiBox=document.createElement('div');apiBox.className='notice';apiBox.id='apiStatus';apiBox.hidden=true;apiBox.setAttribute('role','alert');apiBox.tabIndex=-1;
-byId('signatureSection').before(apiBox);
-const banner=document.createElement('p');banner.className='notice';banner.id='apiConnection';banner.setAttribute('role','status');
-byId('progress').before(banner);
+byId('submitButton').closest('.actions').before(apiBox);
+const previousApplySponsorLink=applySponsorLink;
+applySponsorLink=function(){
+  previousApplySponsorLink();
+  if(sponsorLink.mode!=='invalid')byId('sponsorLinkNotice').hidden=true;
+  byId('sponsorIdHint').hidden=sponsorLink.mode!=='invalid';
+  // Keep the safety lock for an in-flight/ambiguous POST even after validation.
+  byId('submitButton').disabled=sending||unknownResult||sponsorLink.mode==='invalid';
+};
+const oldUpdateNavigation=updateNavigation;
+updateNavigation=function(){oldUpdateNavigation();form.querySelectorAll('.edit-note').forEach(node=>node.hidden=true);};
 byId('submitButton').removeAttribute('data-i18n');
 byId('successTitle').removeAttribute('data-i18n');
 const successCopy=byId('success').querySelector('p');successCopy.removeAttribute('data-i18n');
 const receipt=document.createElement('p');byId('success').querySelector('.success').append(receipt);
-const foot=document.querySelector('[data-i18n="previewFoot"]');if(foot)foot.dataset.i18n='apiFoot';
+document.querySelector('.footer')?.remove();
+document.querySelector('[data-i18n="newPartner"]')?.closest('.notice')?.remove();
 const fieldsMap={first_name:'firstName',last_name:'lastName',birth_date:'birthDate',email:'email',street:'street',house_number:'houseNo',postal_code:'postal',city:'city',country:'country',phone:'phone',mobile:'mobile',tax_number:'taxNo',vat_id:'vatId',tax_office:'taxOffice',start_option:'startOption',iban:'iban',bic:'bic',bank:'bank',account_holder:'holder',start_date:'startDate',signing_location:'location',sponsor_name:'sponsor',sponsor_partner_number:'sponsorId',vitarights_leader:'leader',vat_liable:'vat',contract_accepted:'c1',privacy_accepted:'c2',self_employed_confirmed:'c3'};
 // Match the API contract provided by the operator, including optional fields.
 for(const name of ['phone','mobile','bank','location','sponsor','leader']){
   const input=control(name),required=name==='phone';input.required=required;
   const label=input.closest('[data-field]').querySelector('label');
-  label.querySelectorAll('.req,[data-i18n="optional"]').forEach(el=>el.remove());
+  label.querySelectorAll('.req,.optional,[data-i18n="optional"]').forEach(el=>el.remove());
   const suffix=document.createElement('span');suffix.className=required?'req':'hint';
   if(required){suffix.textContent=' *';suffix.setAttribute('aria-hidden','true');}else{suffix.dataset.i18n='optional';suffix.textContent=t('optional');}
   label.append(document.createTextNode(' '),suffix);
@@ -42,19 +132,24 @@ function forgetAttempt(){try{sessionStorage.removeItem(attemptStorage);}catch{}}
 // On a reload during a POST, never silently send a second application.
 try{const old=JSON.parse(sessionStorage.getItem(attemptStorage)||'null');if(old&&/^[a-f0-9-]{36}$/.test(old.id)){requestId=old.id;unknownResult=true;apiProblem={key:'apiUnknown',id:old.id};}}catch{}
 function renderApi(){
-  const noteKey=apiLoading?'apiLoading':apiReady?'apiNote':'apiUnavailable';
-  noticeText.textContent=t(noteKey);banner.textContent=t(noteKey);banner.hidden=apiReady;
-  connectionButton.textContent=t('apiRetryConnection');connectionButton.hidden=apiReady||apiLoading;connectionButton.disabled=apiLoading||sending;
-  const button=byId('submitButton');button.textContent=t(sending?'apiSending':unknownResult?'apiUnknownLock':'apiSubmit');
-  button.disabled=!apiReady||sending||unknownResult||sponsorLink.mode==='invalid';
+  const button=byId('submitButton');
+  button.textContent=t(sending?'apiSending':unknownResult?'apiUnknownLock':'apiSubmit');
+  // An initial connection failure must not permanently disable submission.
+  // The next user-initiated submit refreshes the connection before any POST.
+  button.disabled=sending||unknownResult||sponsorLink.mode==='invalid';
   form.inert=sending;form.setAttribute('aria-busy',String(sending));
   apiBox.hidden=!apiProblem;
-  if(apiProblem){apiBox.textContent=t(apiProblem.key)+(apiProblem.id?' · '+t('apiRef')+': '+apiProblem.id:'');}
+  if(apiProblem){
+    panels[step].querySelector('.actions').before(apiBox);
+    apiBox.replaceChildren();
+    const message=document.createElement('p');message.style.margin='0';message.textContent=t(apiProblem.key);apiBox.append(message);
+    if(apiProblem.id){const reference=document.createElement('small');reference.className='hint';reference.style.overflowWrap='anywhere';reference.textContent=t('apiRef')+': '+apiProblem.id;apiBox.append(reference);}
+  }
   if(submissionOutcome){
     const stored=submissionOutcome.code==='STORED';
     byId('successTitle').textContent=t(stored?'apiStoredTitle':'apiManualTitle');successCopy.textContent=t(stored?'apiStoredText':'apiManualText');
     byId('success').querySelector('i').textContent=stored?'✓':'!';
-    receipt.textContent=t('apiRef')+': '+submissionOutcome.request_id+(stored?' · '+t('apiId')+': '+submissionOutcome.application_id:'');
+    receipt.textContent=stored?t('apiId')+': '+submissionOutcome.application_id:t('apiRef')+': '+submissionOutcome.request_id;
   }
 }
 const previousShowStep=showStep;
@@ -62,19 +157,23 @@ showStep=function(...args){previousShowStep(...args);renderApi();};
 const previousLocalise=localise;
 localise=function(){previousLocalise();renderApi();};
 async function connect(){
-  if(sponsorLink.mode==='invalid')return;
-  apiLoading=true;renderApi();
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
-  try{
-    const suffix=sponsorLink.mode==='linked'?'?sponsorId='+encodeURIComponent(sponsorLink.value):'';
-    const response=await fetch('/api/session'+suffix,{credentials:'same-origin',cache:'no-store',signal:controller.signal});
-    if(!response.ok)throw Error();const result=await response.json();
-    apiReady=result.ready===true;apiToken=typeof result.token==='string'?result.token:'';
-    if(!apiToken)apiReady=false;
-    if(apiProblem?.key==='apiSession')apiProblem=null;
-  }catch{apiReady=false;}finally{clearTimeout(timer);apiLoading=false;renderApi();}
+  if(sponsorLink.mode==='invalid')return {ok:false,code:'SPONSOR'};
+  if(connectionPromise)return connectionPromise;
+  connectionPromise=(async()=>{
+    apiLoading=true;
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),10000);
+    try{
+      const suffix=sponsorLink.mode==='linked'?'?sponsorId='+encodeURIComponent(sponsorLink.value):'';
+      const response=await fetch('/api/session'+suffix,{credentials:'same-origin',cache:'no-store',signal:controller.signal});
+      const result=await response.json();
+      apiReady=response.ok&&result?.ready===true&&typeof result.token==='string'&&!!result.token;
+      apiToken=apiReady?result.token:'';
+      return {ok:apiReady,code:apiReady?null:result?.code||(result?.ready===false?'NOT_CONFIGURED':'CONNECTION'),request_id:typeof result?.request_id==='string'?result.request_id:undefined};
+    }catch{apiReady=false;apiToken='';return {ok:false,code:'CONNECTION'};}
+    finally{clearTimeout(timer);apiLoading=false;}
+  })();
+  try{return await connectionPromise;}finally{connectionPromise=null;}
 }
-connectionButton.addEventListener('click',connect);
 function pngSignature(){
   const output=document.createElement('canvas'),rect=canvas.getBoundingClientRect();output.width=1000;output.height=Math.max(1,Math.min(1000,Math.round(1000*rect.height/Math.max(1,rect.width))));
   const ink=output.getContext('2d');if(!ink)throw Error('canvas');
@@ -101,12 +200,12 @@ function handleApiError(result){
   const code=result.code||'RESULT_UNKNOWN';
   if(!keys[code]||['RESULT_UNKNOWN','REQUEST_CONFLICT','NOT_STORED'].includes(code)){unknownResult=true;rememberAttempt('unknown');}
   else{forgetAttempt();requestPayload=null;requestId='';}
-  if(code==='SESSION_EXPIRED'){apiReady=false;apiToken='';}
-  const names=(result.fields||[]).map(name=>fieldsMap[name]).filter(Boolean);
+  if(code==='SESSION_EXPIRED'||code==='NOT_CONFIGURED'){apiReady=false;apiToken='';}
+  const names=(Array.isArray(result.fields)?result.fields:[]).map(name=>fieldsMap[name]).filter(Boolean);
   if(names.length){
     const field=firstControl(names[0]);returnReview=true;showStep(Number(field.closest('[data-step]').dataset.step),false);
     for(const name of names)renderField(name,issue('apiServerField'));focusField(names[0]);
-    announce(keys[code]||'apiOther');apiProblem={key:keys[code]||'apiOther',id:result.request_id};renderApi();
+    apiProblem={key:keys[code]||'apiOther',id:result.request_id};renderApi();
   }else showApiProblem(keys[code]||'apiUnknown',result.request_id||requestId);
 }
 form.addEventListener('submit',async event=>{
@@ -114,11 +213,18 @@ form.addEventListener('submit',async event=>{
   if(step!==5){next();return;}if(!validateAll())return;
   if(hasSignature()&&signatureSnapshot!==formSnapshot())clearSignature(true);
   if(!hasSignature()){signatureMissing=true;signatureUI();canvas.focus({preventScroll:true});byId('signatureSection').scrollIntoView({block:'center',behavior:scrollBehavior()});return;}
-  if(!apiReady){showApiProblem('apiUnavailable');return;}
-  try{requestPayload=buildPayload();}catch{showApiProblem('apiLarge');return;}
-  requestId=uuid();rememberAttempt('pending');apiProblem=null;sending=true;renderApi();
-  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),35000);
+  apiProblem=null;sending=true;renderApi();
+  let timer=null,postStarted=false;
   try{
+    // Always check at the user's actual submission, not just once on page load.
+    // A failure here is safe to retry: no application has left the browser.
+    const connection=await connect();
+    if(!connection.ok){
+      apiProblem={key:connection.code==='NOT_CONFIGURED'?'apiUnavailable':'apiBeforeSend',id:connection.request_id};return;
+    }
+    try{requestPayload=buildPayload();}catch{apiProblem={key:'apiLarge'};return;}
+    requestId=uuid();rememberAttempt('pending');postStarted=true;
+    const controller=new AbortController();timer=setTimeout(()=>controller.abort(),35000);
     const response=await fetch('/api/submit',{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'Content-Type':'application/json','X-Form-Token':apiToken,'Idempotency-Key':requestId},body:JSON.stringify(requestPayload),signal:controller.signal});
     const result=await response.json();
     if(!result||typeof result!=='object')throw Error();
@@ -130,11 +236,17 @@ form.addEventListener('submit',async event=>{
       unknownResult=true;form.hidden=true;byId('progress').hidden=true;byId('success').hidden=false;renderApi();
       byId('successTitle').focus({preventScroll:true});byId('success').scrollIntoView({block:'start',behavior:scrollBehavior()});
     }else handleApiError(result);
-  }catch{unknownResult=true;rememberAttempt('unknown');showApiProblem('apiNetwork',requestId);}
-  finally{clearTimeout(timer);sending=false;renderApi();}
+  }catch{
+    if(postStarted){unknownResult=true;rememberAttempt('unknown');apiProblem={key:'apiNetwork',id:requestId};}
+    else{apiProblem={key:'apiBeforeSend'};}
+  }finally{
+    clearTimeout(timer);sending=false;renderApi();
+    if(apiProblem&&!form.hidden&&step===5){apiBox.focus({preventScroll:true});apiBox.scrollIntoView({block:'center',behavior:scrollBehavior()});}
+  }
 });
 // The existing language/theme and back-to-review handlers continue to work.
 form.addEventListener('input',()=>{if(!sending)renderApi();});
 form.addEventListener('change',()=>{if(!sending)renderApi();});
 window.addEventListener('pageshow',renderApi);
-queueMicrotask(()=>{renderApi();connect();});
+// No page-load request or connection-state messaging. Check on submit only.
+queueMicrotask(renderApi);

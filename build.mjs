@@ -9,18 +9,23 @@ export function compileForm(template,integration){
   const a=template.indexOf(start),b=template.indexOf(end,a);
   if(a<0||b<0||template.indexOf(start,a+1)!==-1||!template.includes('brand-i18n-v2'))throw Error('Form template changed: review the submission integration before deploying.');
   let html=template.slice(0,a)+integration+'\n'+template.slice(b);
-  // Native date inputs accumulate a multi-digit year inside the browser.
-  // Reassigning even an unchanged min/max resets that editor on each input event.
-  // Patch the existing template during the same single-file production build.
+  // Native date editors reset their year buffer when min/max are reassigned.
   const dateBounds="  control('birthDate').max=localDate(adult);control('startDate').min=localDate(now);";
   if(html.split(dateBounds).length!==2)throw Error('Date-input rule changed: review the keyboard-entry regression fix.');
   html=html.replace(dateBounds,`  const birth=control('birthDate'),start=control('startDate');
   const maximumBirth=localDate(adult),minimumStart=localDate(now);
-  // Never touch the active native editor; refresh changed bounds on blur/navigation.
   if(document.activeElement!==birth&&birth.max!==maximumBirth)birth.max=maximumBirth;
   if(document.activeElement!==start&&start.min!==minimumStart)start.min=minimumStart;`);
   html=html.replace('content="brand-i18n-v2"','content="prod-api-v1"');
-  html=html.replace('<meta name="pm-form-version" content="prod-api-v1">','<meta name="pm-form-version" content="prod-api-v1"><meta name="pm-input-fix" content="date-year-v1">');
+  html=html.replace('<meta name="pm-form-version" content="prod-api-v1">','<meta name="pm-form-version" content="prod-api-v1"><meta name="pm-input-fix" content="date-year-v1"><meta name="pm-ux-version" content="clean-submit-v1">');
+  // No setup/test instructions should flash before JS finishes booting.
+  html=html.replace(/<div class="notice" id="localModeNotice">[\s\S]*?<\/div>/,'');
+  html=html.replace(/<footer class="footer">[\s\S]*?<\/footer>/,'');
+  html=html.replace(/(<p class="notice edit-note"[^>]*>)[\s\S]*?<\/p>/g,'$1</p>');
+  html=html.replace(/(<p class="sub"[^>]*data-i18n="heroSub"[^>]*>)[\s\S]*?<\/p>/,'$1Fülle deinen Partnerantrag aus und prüfe deine Angaben vor dem Absenden.</p>');
+  // Make the actual final action explicit, including before initial localisation.
+  html=html.replace('data-i18n="localSubmit">Lokal prüfen →','data-i18n="apiSubmit">Antrag absenden →');
+
   // A boot failure cannot leak data through a default GET form submission.
   html=html.replace(/<form\b([^>]*?)>/,(_,attrs)=>`<form${attrs} method="post" action="/api/submit">`);
   for(const [name,required]of [['phone',true],['mobile',false],['bank',false],['location',false],['sponsor',false],['leader',false]]){
@@ -28,7 +33,7 @@ export function compileForm(template,integration){
     if(!re.test(html))throw Error('Missing field '+name);
     html=html.replace(re,tag=>required?tag.replace(/>$/, ' required>'):tag.replace(/\srequired\b/g,''));
   }
-  html=html.replace(/<span data-i18n="localNote">[\s\S]*?<\/span>/,'<span data-i18n="localNote">Verbindung wird vorbereitet …</span>');
+
   for(const [,script] of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))new Script(script);
   if(html.includes('// Deliberately no network request.'))throw Error('Demo submit handler survived compilation');
   return html;
