@@ -9,7 +9,18 @@ export function compileForm(template,integration){
   const a=template.indexOf(start),b=template.indexOf(end,a);
   if(a<0||b<0||template.indexOf(start,a+1)!==-1||!template.includes('brand-i18n-v2'))throw Error('Form template changed: review the submission integration before deploying.');
   let html=template.slice(0,a)+integration+'\n'+template.slice(b);
+  // Native date inputs accumulate a multi-digit year inside the browser.
+  // Reassigning even an unchanged min/max resets that editor on each input event.
+  // Patch the existing template during the same single-file production build.
+  const dateBounds="  control('birthDate').max=localDate(adult);control('startDate').min=localDate(now);";
+  if(html.split(dateBounds).length!==2)throw Error('Date-input rule changed: review the keyboard-entry regression fix.');
+  html=html.replace(dateBounds,`  const birth=control('birthDate'),start=control('startDate');
+  const maximumBirth=localDate(adult),minimumStart=localDate(now);
+  // Never touch the active native editor; refresh changed bounds on blur/navigation.
+  if(document.activeElement!==birth&&birth.max!==maximumBirth)birth.max=maximumBirth;
+  if(document.activeElement!==start&&start.min!==minimumStart)start.min=minimumStart;`);
   html=html.replace('content="brand-i18n-v2"','content="prod-api-v1"');
+  html=html.replace('<meta name="pm-form-version" content="prod-api-v1">','<meta name="pm-form-version" content="prod-api-v1"><meta name="pm-input-fix" content="date-year-v1">');
   // A boot failure cannot leak data through a default GET form submission.
   html=html.replace(/<form\b([^>]*?)>/,(_,attrs)=>`<form${attrs} method="post" action="/api/submit">`);
   for(const [name,required]of [['phone',true],['mobile',false],['bank',false],['location',false],['sponsor',false],['leader',false]]){
