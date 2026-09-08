@@ -1,0 +1,16 @@
+Erweitere im bestehenden Base44-Projekt die Vitarights-Partneranträge für europäische Wohnsitze. Die Formularseite und das Railway-Backend unterstützen diese Länder bereits.
+
+Prüfe die tatsächlich verwendete Entity (PartnerApplicationVitarights bzw. PartnerApplication_Vitarights) und die Function createVitarightsPartnerApplication. Keine zweite Entity anlegen.
+
+1. Entferne die bisherige Einschränkung von country auf DE/AT sowohl im Entity-Schema als auch in der Backend Function. country bleibt ein string. Verwende diese erlaubten Codes:
+AD, AL, AM, AT, AX, AZ, BA, BE, BG, BY, CH, CY, CZ, DE, DK, EE, ES, FI, FO, FR, GB, GE, GG, GI, GR, HR, HU, IE, IM, IS, IT, JE, KZ, LI, LT, LU, LV, MC, MD, ME, MK, MT, NL, NO, PL, PT, RO, RS, RU, SE, SI, SJ, SK, SM, TR, UA, VA, XK.
+
+2. postal_code bleibt ein Pflichtfeld vom Typ string mit maxLength 16. Keine globale 4-/5-Ziffern-Regel und keine Umwandlung in number. Postleitzahlen dürfen Buchstaben, Leerzeichen und Bindestriche enthalten; führende Nullen erhalten. Die landesspezifische Formatprüfung steht in address.mjs des Repositories StevenRohner/promptmarketer-form1. Übernimm dieselben Regeln oder validiere serverseitig mit einer gleichwertigen gepflegten Länderkonfiguration; keine stillschweigende DE/AT-Ersatzzuordnung. Beispiele: CY 2008, GB SW1A 1AA, IE D6W X285, NL 1012 AB, MT VLT 1117, PL 00-001, PT 1000-001. Die Formatprüfung bestätigt keine tatsächliche Adress-/Postleitzahlzuordnung.
+
+3. Das Wohnsitzland darf nicht an das IBAN-Länderkürzel gekoppelt sein. Internationale IBANs bleiben strings. Keine DE/AT-only-Regel in der Entity.
+
+4. Bei anderen Wohnsitzländern nicht pauschal das deutsche USt-ID-Pattern erzwingen. Die bestehende bedingte Pflicht für Steuerangaben bei vat_liable=true erhalten. Keine komplette Steuerverifikation behaupten.
+
+5. Alles andere unverändert lassen: X-API-Key mit dem vorhandenen VITARIGHTS_PARTNER_API_KEY; project_id; Sponsor-Zuordnung über CompanyConfiguration.username_or_id und die Vitarights-company_id; Nutzerreferenz; die drei ausdrücklich bestätigten Booleans; PNG-Unterschrift und Rückgabe von stored/application_id. Vorhandene Daten, Berechtigungen und Secrets weder löschen noch abschwächen. Die Ländererweiterung ändert den Vertragstext nicht.
+
+6. Die Änderungen veröffentlichen. Keine echten Anträge, E-Mails oder Nutzer zum Testen erzeugen. Schema/Validierung isoliert prüfen und mitteilen, welche Änderungen tatsächlich aktiv sind.

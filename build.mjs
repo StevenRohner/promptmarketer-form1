@@ -1,5 +1,8 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {Script} from 'node:vm';
+import {countryOptions} from './address.mjs';
+const addressSource=readFileSync(new URL('./address.mjs',import.meta.url),'utf8').replace(/^export /gm,'');
+const addressUI=readFileSync(new URL('./address-ui.js',import.meta.url),'utf8');
 const ibanSource=readFileSync(new URL('./iban.mjs',import.meta.url),'utf8').replace(/^export /gm,'');
 
 // Keep the established single-file DE/EN design as the template. Build the
@@ -26,6 +29,32 @@ export function compileForm(template,integration){
   html=html.replace("if(field.name==='iban')field.value=field.value.toUpperCase().replace(/\\s/g,'').replace(/(.{4})/g,'$1 ').trim();",
     "if(field.name==='iban'){const iban=normaliseIban(field.value);if(iban)field.value=iban.replace(/(.{4})/g,'$1 ').trim();}");
   html=html.replace('<meta name="referrer" content="no-referrer">','<meta name="referrer" content="no-referrer"><meta name="pm-iban-version" content="international-iban-v1">');
+  // European address support is compiled into the same HTML (no runtime imports).
+  const once=(old,replacement)=>{
+    if(html.split(old).length!==2)throw Error('Address integration anchor changed: '+old.slice(0,80));
+    html=html.replace(old,()=>replacement);
+  };
+  once('const I18N=',addressSource+'\nconst I18N=');
+  once('function applyRules(){',addressUI+'\nfunction applyRules(){');
+  once("  control('postal').pattern=value('country')==='AT'?'[0-9]{4}':'[0-9]{5}';\n  control('vatId').pattern=value('country')==='AT'?'ATU[0-9]{8}':'DE[0-9]{9}';",'  applyAddressRules();');
+  once("  if(name==='postal'&&!new RegExp(value('country')==='AT'?'^[0-9]{4}$':'^[0-9]{5}$').test(v))return issue(value('country')==='AT'?'badPostalAT':'badPostalDE');",
+    "  if(name==='postal'&&countrySpec(value('country'))&&!postalValid(v,value('country')))return issue('badPostal',{country:countryLabel(value('country'),lang),example:countrySpec(value('country')).example});");
+  once("  if(name==='country'&&!['DE','AT'].includes(v))return issue('badValue',{field:t(name)});",
+    "  if(name==='country'&&!countrySpec(v))return issue('badValue',{field:t(name)});");
+  once("  if(name==='vatId'&&!new RegExp(value('country')==='AT'?'^ATU[0-9]{8}$':'^DE[0-9]{9}$').test(v.toUpperCase().replace(/\\s/g,'')))return issue(value('country')==='AT'?'badVatAT':'badVatDE');",
+    "  if(name==='vatId'&&vatPattern(value('country'))&&!new RegExp('^'+vatPattern(value('country'))+'$').test(v.toUpperCase().replace(/\\s/g,'')))return issue(value('country')==='AT'?'badVatAT':'badVatDE');");
+  once("  if(name==='country')return t(v==='AT'?'countryAT':'countryDE');","  if(name==='country')return countryLabel(v,lang);");
+  once('  root.lang=lang;document.title=t(\'pageTitle\');',"  root.lang=lang;document.title=t('pageTitle');updateCountryOptions();");
+  once('  field.value=field.value.trim();',`  field.value=field.value.trim();
+  if(field.name==='postal'){
+    const checked=inspectPostal(field.value,value('country'));
+    if(checked.valid)field.value=checked.value;
+  }`);
+  const select=/<select\b[^>]*\bid="country"[^>]*>[\s\S]*?<\/select>/;
+  if(!select.test(html))throw Error('Missing country dropdown');
+  html=html.replace(select,match=>match.slice(0,match.indexOf('>')+1)+'<option value="">Bitte wählen</option>'+countryOptions('de').map(({value,label})=>`<option value="${value}">${label}</option>`).join('')+'</select>');
+  html=html.replace(/<input\b[^>]*\bid="postal"[^>]*>/,tag=>tag.replace(/maxlength="[^"]*"/,'maxlength="16"').replace(/inputmode="[^"]*"/,'inputmode="text"'));
+  html=html.replace('<meta name="pm-iban-version" content="international-iban-v1">','<meta name="pm-iban-version" content="international-iban-v1"><meta name="pm-address-version" content="europe-address-v1">');
   // Native date editors reset their year buffer when min/max are reassigned.
   const dateBounds="  control('birthDate').max=localDate(adult);control('startDate').min=localDate(now);";
   if(html.split(dateBounds).length!==2)throw Error('Date-input rule changed: review the keyboard-entry regression fix.');

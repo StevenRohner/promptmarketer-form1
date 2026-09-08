@@ -23,7 +23,7 @@ function fixture(){
   const controls={birthDate:birth,startDate:start,postal:{},vatId:{setCustomValidity(){}},taxNo:{setCustomValidity(){}},taxOffice:{setCustomValidity(){}}};
   const state={vat:'nein',country:'DE'},document={activeElement:null};
   const context={document,control:name=>controls[name],value:name=>state[name],
-    byId:()=>({hidden:true}),applySponsorLink(){},renderField(){},
+    byId:()=>({hidden:true}),applySponsorLink(){},renderField(){},applyAddressRules(){},
     form:{querySelectorAll:()=>[]},localDate:date=>[date.getFullYear(),String(date.getMonth()+1).padStart(2,'0'),String(date.getDate()).padStart(2,'0')].join('-')};
   runInNewContext(rules+'\nthis.apply=applyRules;',context);
   return {...context,birth,start,counters,controls,state};

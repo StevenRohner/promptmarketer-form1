@@ -1,3 +1,4 @@
+import {countrySpec,inspectPostal} from './address.mjs';
 import { inflateSync } from 'node:zlib';
 import { inspectIban } from './iban.mjs';
 export { ibanValid } from './iban.mjs';
@@ -5,7 +6,7 @@ export { ibanValid } from './iban.mjs';
 export const LIMIT = 820_000;
 export const FIELDS = {
   sponsor_partner_number: 128, first_name: 100, last_name: 100, birth_date: 10,
-  email: 254, street: 150, house_number: 30, postal_code: 5, city: 120,
+  email: 254, street: 150, house_number: 30, postal_code: 16, city: 120,
   country: 2, phone: 40, mobile: 40, tax_number: 40, vat_id: 20,
   tax_office: 150, start_option: 100, iban: 42, bic: 11, bank: 150,
   account_holder: 200, start_date: 10, signing_location: 120,
@@ -83,8 +84,9 @@ export function validatePayload(body,projectId) {
   }
   const v=n=>out[n]||'';
   if(!/^[0-9]+$/.test(v('sponsor_partner_number')))errors.add('sponsor_partner_number');
-  if(!['DE','AT'].includes(v('country')))errors.add('country');
-  if(!new RegExp(v('country')==='AT'?'^[0-9]{4}$':'^[0-9]{5}$').test(v('postal_code')))errors.add('postal_code');
+  if(!countrySpec(v('country')))errors.add('country');
+  const postal=inspectPostal(v('postal_code'),v('country'));
+  if(!postal.valid)errors.add('postal_code');else out.postal_code=postal.value;
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('email')))errors.add('email');
   for(const name of ['birth_date','start_date'])if(!realDate(v(name)))errors.add(name);
   const today=new Date(),adult=new Date(Date.UTC(today.getUTCFullYear()-18,today.getUTCMonth(),today.getUTCDate())).toISOString().slice(0,10);
