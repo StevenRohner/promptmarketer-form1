@@ -1,4 +1,6 @@
 import { inflateSync } from 'node:zlib';
+import { inspectIban } from './iban.mjs';
+export { ibanValid } from './iban.mjs';
 
 export const LIMIT = 820_000;
 export const FIELDS = {
@@ -18,14 +20,6 @@ export function realDate(v) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
   const d = new Date(v+'T12:00:00Z');
   return Number.isFinite(d.getTime()) && d.toISOString().slice(0,10) === v;
-}
-export function ibanValid(value) {
-  if (!/^(DE[0-9]{20}|AT[0-9]{18})$/.test(value)) return false;
-  let r = 0;
-  for (const ch of value.slice(4)+value.slice(0,4)) {
-    for (const n of /[A-Z]/.test(ch) ? String(ch.charCodeAt(0)-55) : ch) r = (r*10+Number(n))%97;
-  }
-  return r === 1;
 }
 const crcTable = Array.from({length:256},(_,n)=>{
   for (let k=0;k<8;k++) n = n&1 ? 0xedb88320^(n>>>1) : n>>>1;
@@ -96,8 +90,9 @@ export function validatePayload(body,projectId) {
   const today=new Date(),adult=new Date(Date.UTC(today.getUTCFullYear()-18,today.getUTCMonth(),today.getUTCDate())).toISOString().slice(0,10);
   if(v('birth_date')>adult)errors.add('birth_date');
   for(const name of ['phone','mobile'])if(v(name)&&(!/^\+?[0-9][0-9 ()/.\-]{5,38}$/.test(v(name))||v(name).replace(/\D/g,'').length<6))errors.add(name);
-  out.iban=v('iban').toUpperCase().replace(/\s/g,'');out.bic=v('bic').toUpperCase();
-  if(!ibanValid(out.iban))errors.add('iban');
+  const ibanResult=inspectIban(v('iban'));
+  if(!ibanResult.valid)errors.add('iban');else out.iban=ibanResult.iban;
+  out.bic=v('bic').toUpperCase();
   if(!/^[A-Z]{6}[A-Z0-9]{2}([A-Z0-9]{3})?$/.test(out.bic))errors.add('bic');
   if(typeof body.vat_liable!=='boolean')errors.add('vat_liable');out.vat_liable=body.vat_liable;
   if(taxed)out.vat_id=v('vat_id').toUpperCase().replace(/\s/g,'');

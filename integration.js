@@ -34,6 +34,9 @@ const apiText={
     "sub2": "Dein Konto für Provisionsauszahlungen.",
     "sub3": "Wann möchtest du starten und wer hat dich eingeladen?",
     "ibanHint": "Die IBAN findest du in deinem Onlinebanking.",
+    "badIban": "Bitte prüfe die IBAN auf Tippfehler.",
+    "ibanLength": "Eine IBAN mit {country} muss {n} Zeichen ohne Leerzeichen enthalten.",
+    "ibanCountry": "Für dieses Länderkürzel ist kein IBAN-Format hinterlegt. Bitte prüfe die IBAN.",
     "linkedHint": "",
     "linkedNotice": "",
     "sponsorHint": "",
@@ -76,6 +79,9 @@ const apiText={
     "sub2": "Your account for commission payments.",
     "sub3": "When would you like to start, and who invited you?",
     "ibanHint": "You can find your IBAN in your online banking.",
+    "badIban": "Please check your IBAN for typing errors.",
+    "ibanLength": "An IBAN starting with {country} must contain {n} characters without spaces.",
+    "ibanCountry": "There is no registered IBAN format for this country code. Please check your IBAN.",
     "linkedHint": "",
     "linkedNotice": "",
     "sponsorHint": "",
@@ -189,7 +195,7 @@ function buildPayload(){
     if(['tax_number','vat_id','tax_office'].includes(api)&&value('vat')!=='ja')continue;
     const v=value(ui);if(v)payload[api]=v;
   }
-  payload.iban=value('iban').toUpperCase().replace(/\s/g,'');payload.bic=value('bic').toUpperCase();
+  payload.iban=normaliseIban(value('iban'));payload.bic=value('bic').toUpperCase();
   payload.vat_liable=value('vat')==='ja';
   payload.contract_accepted=control('c1').checked===true;payload.privacy_accepted=control('c2').checked===true;payload.self_employed_confirmed=control('c3').checked===true;
   payload.signature=pngSignature();return payload;

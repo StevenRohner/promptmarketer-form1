@@ -103,3 +103,24 @@ test('build preserves source branding and replaces only the demo submit listener
   assert(html.includes("fetch('/api/submit'"));assert(!html.includes('test-key-not-used'));
   assert.throws(()=>compileForm('changed template',client));
 });
+
+for(const [iban,bic] of [
+  ['NL91 ABNA 0417 1643 00','ABNANL2A'],
+  ['CH93 0076 2011 6238 5295 7','POFICHBEXXX'],
+  ['GB29 NWBK 6016 1331 9268 19','NWBKGB2L'],
+  ['FR14 2004 1010 0505 0001 3M02 606','PSSTFRPP'],
+  ['AE07 0331 2345 6789 0123 456','BOMLAEAD']
+]) test('international IBAN forwards from DE and AT residence: '+iban.slice(0,2),async t=>{
+  const s=await setup(t);
+  for(const country of ['DE','AT']){
+    const raw=iban.toLowerCase();
+    const r=await s.post(data({country,postal_code:country==='AT'?'1010':'10115',iban:raw,bic}),{'Idempotency-Key':randomUUID()});
+    assert.equal(r.status,201);assert.equal((await r.json()).stored,true);
+    assert.equal(s.received.body.iban,iban.replace(/\s/g,''));assert.equal(s.received.body.country,country);
+    assert.equal(s.received.body.sponsor_partner_number,'00471123');
+  }
+});
+test('invalid foreign IBAN remains a field validation error before forwarding',async t=>{
+  const s=await setup(t);const r=await s.post(data({iban:'NL00ABNA0417164300'}));
+  assert.equal(r.status,422);const b=await r.json();assert.equal(b.code,'VALIDATION');assert(b.fields.includes('iban'));assert.equal(s.calls,0);
+});
