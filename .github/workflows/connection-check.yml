@@ -1,0 +1,38 @@
+name: Read-only form connection check
+on:
+  push:
+    branches: [main, fix/submission-ux]
+  workflow_dispatch:
+permissions: {}
+jobs:
+  connection:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Inspect health and session (GET only, no application data)
+        shell: python
+        run: |
+          import json, urllib.request, urllib.error
+          origin = 'https://vitarights-partner.promptmarketer.io'
+          allowed = {'status', 'version', 'submission_ready', 'ready', 'missing', 'invalid', 'project_id_source', 'company_id_configured', 'code', 'reason', 'configuration'}
+          for path in ['/api/health', '/api/session?sponsorId=471123']:
+              try:
+                  req = urllib.request.Request(origin + path, headers={'Accept': 'application/json', 'Origin': origin, 'User-Agent': 'PromptMarketer-ReadOnly-Check/1.0'})
+                  try:
+                      response = urllib.request.urlopen(req, timeout=20)
+                  except urllib.error.HTTPError as exc:
+                      response = exc
+                  with response:
+                      status = response.status
+                      content_type = response.headers.get('Content-Type', '')
+                      raw = response.read(65536)
+                  try:
+                      body = json.loads(raw)
+                  except (ValueError, UnicodeDecodeError):
+                      body = {}
+                  safe = {k: v for k, v in body.items() if k in allowed} if isinstance(body, dict) else {}
+                  if path.startswith('/api/session'):
+                      safe['token_present'] = isinstance(body, dict) and isinstance(body.get('token'), str) and bool(body['token'])
+                  print(json.dumps({'route': path.split('?')[0], 'http_status': status, 'content_type': content_type, 'diagnostic': safe}, ensure_ascii=True))
+              except Exception as exc:
+                  print(json.dumps({'route': path.split('?')[0], 'network_error': type(exc).__name__}))
