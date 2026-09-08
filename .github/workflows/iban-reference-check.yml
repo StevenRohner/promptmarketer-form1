@@ -1,4 +1,4 @@
-name: Read official IBAN format reference
+name: Read IBAN format reference
 on:
   push:
     branches: [feat/international-iban]
@@ -12,23 +12,10 @@ jobs:
       - name: Read public format metadata (no account data or credentials)
         shell: python
         run: |
-          import urllib.request, csv, io, json, hashlib
-          url = 'https://www.swift.com/swift-resource/11971/download'
-          req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0', 'Accept': 'text/plain,*/*'})
-          with urllib.request.urlopen(req, timeout=30) as response:
-              raw = response.read(2000000)
-          encoding = 'utf-16' if raw[:2] in (b'\xff\xfe', b'\xfe\xff') else 'utf-8-sig'
-          try:
-              text = raw.decode(encoding)
-          except UnicodeDecodeError:
-              text = raw.decode('cp1252')
-          if '<html' in text[:500].lower():
-              raise RuntimeError('Reference download returned HTML, not registry data')
-          print(json.dumps({'source': url, 'sha256': hashlib.sha256(raw).hexdigest(), 'encoding': encoding}))
-          rows = list(csv.reader(io.StringIO(text), delimiter='\t'))
-          print('ROW_LABELS', json.dumps([r[0] for r in rows if r], ensure_ascii=True))
-          for row in rows:
-              if not row: continue
-              label = row[0].lower()
-              if any(x in label for x in ['iso country', 'iban structure', 'bban structure', 'iban length', 'iban electronic']):
-                  print('FORMAT_ROW', json.dumps(row, ensure_ascii=True))
+          import urllib.request, json, hashlib
+          url = 'https://raw.githubusercontent.com/mdomke/schwifty/main/schwifty/iban_registry/generated.json'
+          with urllib.request.urlopen(url, timeout=30) as response:
+              raw = response.read(1000000)
+          data = json.loads(raw)
+          specs = {k:[v['iban_length'],v['bban_spec']] for k,v in data.items() if v['iban_spec'].startswith(k)}
+          print(json.dumps({'source':url,'sha256':hashlib.sha256(raw).hexdigest(),'formats':specs},ensure_ascii=True))
