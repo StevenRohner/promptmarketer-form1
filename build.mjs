@@ -1,0 +1,29 @@
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {Script} from 'node:vm';
+
+// Keep the established single-file DE/EN design as the template. Build the
+// production HTML with one replacement, not a second competing submit listener.
+export function compileForm(template,integration){
+  const start="form.addEventListener('submit',event=>{";
+  const end="byId('backReview').addEventListener";
+  const a=template.indexOf(start),b=template.indexOf(end,a);
+  if(a<0||b<0||template.indexOf(start,a+1)!==-1||!template.includes('brand-i18n-v2'))throw Error('Form template changed: review the submission integration before deploying.');
+  let html=template.slice(0,a)+integration+'\n'+template.slice(b);
+  html=html.replace('content="brand-i18n-v2"','content="prod-api-v1"');
+  // A boot failure cannot leak data through a default GET form submission.
+  html=html.replace(/<form\b([^>]*?)>/,(_,attrs)=>`<form${attrs} method="post" action="/api/submit">`);
+  for(const [name,required]of [['phone',true],['mobile',false],['bank',false],['location',false],['sponsor',false],['leader',false]]){
+    const re=new RegExp('<input\\b[^>]*\\bid="'+name+'"[^>]*>');
+    if(!re.test(html))throw Error('Missing field '+name);
+    html=html.replace(re,tag=>required?tag.replace(/>$/, ' required>'):tag.replace(/\srequired\b/g,''));
+  }
+  html=html.replace(/<span data-i18n="localNote">[\s\S]*?<\/span>/,'<span data-i18n="localNote">Verbindung wird vorbereitet …</span>');
+  for(const [,script] of html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g))new Script(script);
+  if(html.includes('// Deliberately no network request.'))throw Error('Demo submit handler survived compilation');
+  return html;
+}
+if(process.argv[1]?.endsWith('build.mjs')){
+  const html=compileForm(readFileSync(new URL('./index.html',import.meta.url),'utf8'),readFileSync(new URL('./integration.js',import.meta.url),'utf8'));
+  mkdirSync(new URL('./public',import.meta.url),{recursive:true});writeFileSync(new URL('./public/index.html',import.meta.url),html);
+  console.log('Production HTML compiled: PNG signature + same-origin server submission.');
+}
